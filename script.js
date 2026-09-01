@@ -172,18 +172,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     /* ----------------------------------
-       HERO SECTION SCROLL ANIMATION (ENCHAÎNEMENT IMMÉDIAT DÈS LA FIN DES 4 PHOTOS)
+       HERO SECTION SCROLL ANIMATION
     ---------------------------------- */
     if (window.innerWidth > 768) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero-section",
           start: "top top",
-          end: "+=60%",
-          scrub: 0.6,
+          end: "+=120%",
+          scrub: 1,
           pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
           invalidateOnRefresh: true
         }
       });
@@ -201,14 +199,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
         const verticalOffset = 90;
 
         return {
-          top: Math.max(0, (colRect.top - heroRect.top) + verticalOffset),
-          left: Math.max(0, colRect.left - heroRect.left),
-          right: Math.max(0, heroRect.right - colRect.right),
-          bottom: Math.max(0, (heroRect.bottom - colRect.bottom) + verticalOffset)
+          top: (colRect.top - heroRect.top) + verticalOffset,
+          left: colRect.left - heroRect.left,
+          right: heroRect.right - colRect.right,
+          bottom: (heroRect.bottom - colRect.bottom) + verticalOffset
         };
       }
 
-      // Video mask animation (fin pile à t = 1.0)
+      // Video mask animation
       tl.to(".video-wrapper", {
         clipPath: () => {
           const i = getInset();
@@ -218,39 +216,37 @@ document.addEventListener("DOMContentLoaded", (event) => {
         duration: 1
       }, 0);
 
-      // Video scale animation (fin pile à t = 1.0)
+      // Video scale animation
       tl.to(".video-inner", {
         scale: 0.8,
         ease: "power2.out",
         duration: 1
       }, 0);
 
-      // Fade out hero content (fin à t = 0.6)
+      // Fade out hero content
       tl.to(".hero-content", {
         opacity: 0,
         ease: "power2.out",
-        duration: 0.6
+        duration: 1
       }, 0);
 
-      // Left column images animation (commence à 0.2, durée 0.8, fin pile à 1.0)
+      // Left column images animation
       tl.from(".col-1 img", {
         x: "-200%",
         y: "150%",
-        stagger: 0.08,
-        ease: "power2.out",
-        clearProps: "all",
-        duration: 0.8
-      }, 0.2);
+        stagger: 0.15,
+        ease: "power3.out",
+        duration: 1
+      }, "-=0.6");
 
-      // Right column images animation (commence à 0.2, durée 0.8, fin pile à 1.0)
+      // Right column images animation
       tl.from(".col-3 img", {
         x: "200%",
         y: "150%",
-        stagger: 0.08,
-        ease: "power2.out",
-        clearProps: "all",
-        duration: 0.8
-      }, 0.2);
+        stagger: 0.15,
+        ease: "power3.out",
+        duration: 1
+      }, "-=0.8");
     }
   }
 
