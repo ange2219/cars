@@ -172,16 +172,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     /* ----------------------------------
-       HERO SECTION SCROLL ANIMATION (DÉFILEMENT NATUREL SANS AUCUN BLOCAGE NI PAUSE)
+       HERO SECTION SCROLL ANIMATION (ENCHAÎNEMENT IMMÉDIAT DÈS LA FIN DES 4 PHOTOS)
     ---------------------------------- */
     if (window.innerWidth > 768) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero-section",
           start: "top top",
-          end: "bottom top",
-          scrub: 1,
-          pin: false,
+          end: "+=60%",
+          scrub: 0.6,
+          pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
           invalidateOnRefresh: true
         }
       });
@@ -206,49 +208,49 @@ document.addEventListener("DOMContentLoaded", (event) => {
         };
       }
 
-      // Video mask animation
+      // Video mask animation (fin pile à t = 1.0)
       tl.to(".video-wrapper", {
         clipPath: () => {
           const i = getInset();
           return `inset(${i.top}px ${i.right}px ${i.bottom}px ${i.left}px round var(--radius))`;
         },
-        ease: "power1.out",
+        ease: "power2.out",
         duration: 1
       }, 0);
 
-      // Video scale animation
+      // Video scale animation (fin pile à t = 1.0)
       tl.to(".video-inner", {
         scale: 0.8,
-        ease: "power1.out",
+        ease: "power2.out",
         duration: 1
       }, 0);
 
-      // Fade out hero content
+      // Fade out hero content (fin à t = 0.6)
       tl.to(".hero-content", {
         opacity: 0,
-        ease: "power1.out",
-        duration: 0.7
+        ease: "power2.out",
+        duration: 0.6
       }, 0);
 
-      // Left column images animation (synchronisé fluide)
+      // Left column images animation (commence à 0.2, durée 0.8, fin pile à 1.0)
       tl.from(".col-1 img", {
         x: "-200%",
         y: "150%",
-        stagger: 0.1,
+        stagger: 0.08,
         ease: "power2.out",
         clearProps: "all",
-        duration: 1
-      }, 0.1);
+        duration: 0.8
+      }, 0.2);
 
-      // Right column images animation (synchronisé fluide)
+      // Right column images animation (commence à 0.2, durée 0.8, fin pile à 1.0)
       tl.from(".col-3 img", {
         x: "200%",
         y: "150%",
-        stagger: 0.1,
+        stagger: 0.08,
         ease: "power2.out",
         clearProps: "all",
-        duration: 1
-      }, 0.1);
+        duration: 0.8
+      }, 0.2);
     }
   }
 
