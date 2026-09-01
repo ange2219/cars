@@ -215,10 +215,7 @@ header a {
     justify-content: space-between !important;
     align-items: center !important;
     box-sizing: border-box !important;
-    background: rgba(15, 17, 24, 0.75) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    background: transparent;
     border-radius: var(--radius) !important;
     z-index: 1000 !important;
   }
@@ -242,13 +239,13 @@ header a {
     padding: 0 !important;
     text-align: left !important;
     font-size: 1.35rem !important;
-    font-weight: 800 !important;
-    letter-spacing: 2.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
   }
 
   header .logo a {
     display: inline-block !important;
-    color: #ffffff !important;
+    color: var(--header-color) !important;
     text-decoration: none !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -272,7 +269,7 @@ header a {
     display: block !important;
     width: 26px !important;
     height: 2px !important;
-    background-color: #ffffff !important;
+    background-color: var(--header-color) !important;
     border-radius: 1px !important;
   }
 

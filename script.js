@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   if (document.querySelector('.hero-section')) {
 
     /* ----------------------------------
-       HEADER SCROLL EFFECT (Exact Original 49% Width + Blur sur Desktop)
+       HEADER SCROLL EFFECT (Même transparence et effet verre pour Desktop et Mobile)
     ---------------------------------- */
     if (window.innerWidth > 768) {
       gsap.to('header', {
@@ -157,18 +157,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
           scrub: 1,
         }
       });
+    } else {
+      gsap.to('header', {
+        backdropFilter: "blur(300px)",
+        backgroundColor: "rgba(255, 255, 255, 0.15)",
+        "--header-color": "#121212",
+        scrollTrigger: {
+          trigger: 'main',
+          start: 'top top',
+          end: "+=100",
+          scrub: 1,
+        }
+      });
     }
 
     /* ----------------------------------
-       HERO SECTION SCROLL ANIMATION (FLUIDITÉ PARFAITE CONTINUE)
+       HERO SECTION SCROLL ANIMATION (FLUIDITÉ PARFAITE SANS AUCUNE PAUSE)
     ---------------------------------- */
     if (window.innerWidth > 768) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero-section",
           start: "top top",
-          end: "+=100%",
-          scrub: 0.6,
+          end: "+=65%",
+          scrub: 1,
           pin: true,
           pinSpacing: true,
           anticipatePin: 1,
@@ -202,22 +214,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
           const i = getInset();
           return `inset(${i.top}px ${i.right}px ${i.bottom}px ${i.left}px round var(--radius))`;
         },
-        ease: "power2.out",
+        ease: "power1.out",
         duration: 1
       }, 0);
 
       // Video scale animation
       tl.to(".video-inner", {
         scale: 0.8,
-        ease: "power2.out",
+        ease: "power1.out",
         duration: 1
       }, 0);
 
       // Fade out hero content
       tl.to(".hero-content", {
         opacity: 0,
-        ease: "power2.out",
-        duration: 0.8
+        ease: "power1.out",
+        duration: 0.7
       }, 0);
 
       // Left column images animation (synchronisé fluide)
@@ -228,7 +240,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ease: "power2.out",
         clearProps: "all",
         duration: 1
-      }, 0.2);
+      }, 0.1);
 
       // Right column images animation (synchronisé fluide)
       tl.from(".col-3 img", {
@@ -238,7 +250,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ease: "power2.out",
         clearProps: "all",
         duration: 1
-      }, 0.2);
+      }, 0.1);
     }
   }
 
