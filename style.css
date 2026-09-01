@@ -28,6 +28,84 @@
   --header-color: #fff
 }
 
+/* ==========================================================================
+   LUXURY MINIMALIST PRELOADER CURTAIN (GARANTIE ZERO FLASH)
+   ========================================================================== */
+.site-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+  background: #0b0c0e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.65s;
+  pointer-events: all;
+}
+
+.site-preloader.is-loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.preloader-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.preloader-logo span {
+  color: var(--accent-gold, #a67c3b);
+  font-weight: 400;
+}
+
+.preloader-bar {
+  width: 140px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.preloader-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #a67c3b, #f4ecdf, #a67c3b);
+  border-radius: 2px;
+  animation: preloaderPulse 1.2s infinite ease-in-out;
+}
+
+@keyframes preloaderPulse {
+  0% { left: 0%; width: 0%; }
+  50% { left: 25%; width: 60%; }
+  100% { left: 100%; width: 0%; }
+}
+
+.preloader-sub {
+  font-size: 0.68rem;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: 'Space Grotesk', monospace;
+  text-transform: uppercase;
+}
+
 * {
   padding: 0;
   margin: 0;

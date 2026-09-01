@@ -12,49 +12,74 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   /* ----------------------------------
-     HERO VIDEO AUTOPLAY RELIABILITY
+     LUXURY PRELOADER CURTAIN (GARANTIE ZERO FLASH)
   ---------------------------------- */
+  const preloader = document.getElementById('site-preloader');
   const heroVideo = document.querySelector('.video-inner video');
+
+  let siteRevealed = false;
+  const revealSite = () => {
+    if (siteRevealed) return;
+    siteRevealed = true;
+
+    if (preloader) {
+      preloader.classList.add('is-loaded');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      }, 700);
+    }
+
+    /* Page Entrance Animations */
+    if (document.querySelector('.hero-section')) {
+      gsap.from('header .logo', {
+        scale: 0,
+        duration: 0.8,
+        ease: 'back.out(1.7)'
+      });
+
+      gsap.from('.hero-content h1', {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        delay: 0.1
+      });
+
+      gsap.from('.divider', {
+        width: 0,
+        duration: 0.9,
+        ease: 'power2.out',
+        delay: 0.2
+      });
+    }
+  };
+
   if (heroVideo) {
     heroVideo.muted = true;
     const attemptPlay = () => {
       const playPromise = heroVideo.play();
       if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          ['click', 'touchstart', 'scroll', 'mousemove'].forEach(ev => {
-            window.addEventListener(ev, () => { heroVideo.play(); }, { once: true });
-          });
+        playPromise.then(() => {
+          setTimeout(revealSite, 250);
+        }).catch(() => {
+          setTimeout(revealSite, 400);
         });
       }
     };
-    attemptPlay();
-    heroVideo.addEventListener('loadeddata', attemptPlay);
+
+    if (heroVideo.readyState >= 2) {
+      attemptPlay();
+    } else {
+      heroVideo.addEventListener('loadeddata', attemptPlay, { once: true });
+      heroVideo.addEventListener('playing', () => { setTimeout(revealSite, 200); }, { once: true });
+    }
   }
 
-  /* ----------------------------------
-     PAGE LOAD ANIMATIONS (Awwwards Original)
-  ---------------------------------- */
+  // Fallback de sécurité (700ms max) pour une ouverture ultra-rapide
+  setTimeout(revealSite, 700);
+
   if (document.querySelector('.hero-section')) {
-
-    // Logo scale-in animation
-    gsap.from('header .logo', {
-      scale: 0
-    });
-
-    // Smooth heading entrance animation
-    gsap.from('.hero-content h1', {
-      y: 80,
-      opacity: 0,
-      duration: 1.1,
-      ease: 'power3.out',
-      delay: 0.2
-    });
-
-    // Divider width animation
-    gsap.from('.divider', {
-      width: 0,
-      duration: 1
-    });
 
     /* ----------------------------------
        HEADER SCROLL EFFECT (Exact Original 49% Width + Blur)
