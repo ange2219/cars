@@ -219,7 +219,7 @@ header a {
   header .logo {
     display: block !important;
     order: 1 !important;
-    margin: 0 !important;
+    margin: 0 auto 0 0 !important;
     padding: 0 !important;
     text-align: left !important;
     font-size: 1.35rem !important;
@@ -243,7 +243,7 @@ header a {
     flex-direction: column !important;
     justify-content: center !important;
     align-items: flex-end !important;
-    margin: 0 !important;
+    margin: 0 0 0 auto !important;
     padding: 4px 0 !important;
     gap: 5px !important;
     cursor: pointer !important;
