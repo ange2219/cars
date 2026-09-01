@@ -118,6 +118,8 @@ header a{
 .gallery img {
   width: 100%;
   border-radius: var(--radius);
+  opacity: 0;
+  will-change: transform, opacity;
 }
 
 .gallery .col {
