@@ -94,34 +94,34 @@ document.addEventListener("DOMContentLoaded", (event) => {
   setTimeout(revealSite, 400);
 
   /* ----------------------------------
-     MENU TIROIR MOBILE (OUVERTURE VIA LES 2 BARRES)
+     MENU PLEIN ÉCRAN ESCAMOTABLE & MOBILE (AUX COULEURS LUXURY DE L'APPLICATION)
   ---------------------------------- */
-  const mobileBurgerBtns = document.querySelectorAll('#header-bars-btn, .bars, #mobile-burger-btn');
-  const mobileDrawer = document.getElementById('mobile-drawer');
-  const mobileDrawerClose = document.getElementById('mobile-drawer-close');
-  const mobileDrawerOverlay = document.getElementById('mobile-drawer-overlay');
-  const mobileDrawerLinks = document.querySelectorAll('.mobile-drawer-link, .mobile-drawer-cta');
+  const fullscreenMenu = document.getElementById('fullscreen-menu');
+  const menuCloseBtn = document.getElementById('menu-close-btn');
+  const menuBackdrop = document.getElementById('menu-backdrop');
+  const menuLinks = document.querySelectorAll('.menu-link, #menu-reserve-btn');
+  const burgerBtns = document.querySelectorAll('#header-bars-btn, .bars, #mobile-burger-btn');
 
-  const openMobileDrawer = () => {
-    if (mobileDrawer) {
-      mobileDrawer.classList.add('open');
-      mobileDrawer.setAttribute('aria-hidden', 'false');
+  const openMenu = () => {
+    if (fullscreenMenu) {
+      fullscreenMenu.classList.add('open');
+      fullscreenMenu.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
   };
 
-  const closeMobileDrawer = () => {
-    if (mobileDrawer) {
-      mobileDrawer.classList.remove('open');
-      mobileDrawer.setAttribute('aria-hidden', 'true');
+  const closeMenu = () => {
+    if (fullscreenMenu) {
+      fullscreenMenu.classList.remove('open');
+      fullscreenMenu.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
   };
 
-  mobileBurgerBtns.forEach(btn => btn.addEventListener('click', openMobileDrawer));
-  if (mobileDrawerClose) mobileDrawerClose.addEventListener('click', closeMobileDrawer);
-  if (mobileDrawerOverlay) mobileDrawerOverlay.addEventListener('click', closeMobileDrawer);
-  mobileDrawerLinks.forEach(link => link.addEventListener('click', closeMobileDrawer));
+  burgerBtns.forEach(btn => btn.addEventListener('click', openMenu));
+  if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeMenu);
+  if (menuBackdrop) menuBackdrop.addEventListener('click', closeMenu);
+  menuLinks.forEach(link => link.addEventListener('click', closeMenu));
 
   /* ----------------------------------
      DIAPORAMA MOBILE HERO (4 PHOTOS HAUTE DÉFINITION)
