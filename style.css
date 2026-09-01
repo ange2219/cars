@@ -171,12 +171,12 @@ header a{
 }
 
 /* ==========================================================================
-   MOBILE DEDICATED HEADER, DRAWER & HERO SLIDER (UNTOUCHED ON DESKTOP)
+   MOBILE DEDICATED HEADER, DRAWER & HERO SLIDER (STRICTEMENT MASQUÉ SUR PC)
    ========================================================================== */
 .mobile-only-header,
 .mobile-drawer,
 .mobile-hero-slider {
-  display: none;
+  display: none !important;
 }
 
 @media (max-width: 768px) {
@@ -213,27 +213,13 @@ header a{
     fill: #e63946 !important;
   }
 
-  .mobile-brand-names {
-    display: flex !important;
-    flex-direction: column !important;
-    line-height: 1 !important;
-  }
-
   .mobile-brand-title {
-    font-size: 1.25rem !important;
+    font-size: 1.3rem !important;
     font-weight: 900 !important;
-    letter-spacing: 2px !important;
+    letter-spacing: 2.5px !important;
     color: #e63946 !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
-  }
-
-  .mobile-brand-sub {
-    font-size: 0.55rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 1.8px !important;
-    color: rgba(255, 255, 255, 0.75) !important;
-    margin-top: 2px !important;
-    font-family: 'Space Mono', monospace !important;
+    text-transform: uppercase !important;
   }
 
   /* 3 Barres Rouges du Burger */
