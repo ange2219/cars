@@ -144,13 +144,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
     /* ----------------------------------
-       HERO SECTION SCROLL ANIMATION
+       HERO SECTION SCROLL ANIMATION (FLUIDITÉ PARFAITE SANS PAUSE)
     ---------------------------------- */
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".hero-section",
         start: "top top",
-        end: "+=120%",
+        end: "+=100%",
         scrub: 1,
         pin: true,
         invalidateOnRefresh: true
@@ -200,19 +200,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
       duration: 1
     }, 0);
 
-    // Left column images animation: appear from side only upon scrolling
-    tl.fromTo(".col-1 img", 
-      { x: "-150%", y: "100%", opacity: 0 },
-      { x: "0%", y: "0%", opacity: 1, stagger: 0.15, ease: "power2.out", duration: 1 },
-      "-=0.6"
-    );
+    // Left column images animation
+    tl.from(".col-1 img", {
+      x: "-200%",
+      y: "150%",
+      stagger: 0.15,
+      ease: "power3.out",
+      duration: 1
+    }, "-=0.6");
 
-    // Right column images animation: appear from side only upon scrolling
-    tl.fromTo(".col-3 img", 
-      { x: "150%", y: "100%", opacity: 0 },
-      { x: "0%", y: "0%", opacity: 1, stagger: 0.15, ease: "power2.out", duration: 1 },
-      "-=0.8"
-    );
+    // Right column images animation
+    tl.from(".col-3 img", {
+      x: "200%",
+      y: "150%",
+      stagger: 0.15,
+      ease: "power3.out",
+      duration: 1
+    }, "-=0.8");
   }
 
   /* ----------------------------------
