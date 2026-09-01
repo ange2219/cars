@@ -1,0 +1,743 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SØNDR MOTORS — Concessionnaire Officiel GAC, Bestune, FAW, JMC & 212 au Bénin</title>
+  <meta name="description"
+    content="Plateforme internationale d'exportation de véhicules neufs direct usine. Modèles BYD, Changan, Jetour, Geely, Chery, GAC Motor livrés dans tous les ports mondiaux.">
+
+  <!-- Google Fonts: Montserrat, Outfit, Plus Jakarta Sans, Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Menu Plein Écran Escamotable -->
+  <div class="fullscreen-menu" id="fullscreen-menu" aria-hidden="true">
+    <div class="fullscreen-menu-backdrop" id="menu-backdrop"></div>
+    <div class="fullscreen-menu-content">
+      <div class="menu-header">
+        <div class="menu-tag">// SØNDR MOTORS — CONCESSIONNAIRE AGRÉÉ</div>
+        <button class="menu-close-btn" id="menu-close-btn" aria-label="Fermer le menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="menu-body">
+        <nav class="menu-nav">
+          <a href="#hero" class="menu-link" data-num="01"><span class="link-num">01</span><span
+              class="link-title">Accueil</span></a>
+          <a href="#marques" class="menu-link" data-num="02"><span class="link-num">02</span><span
+              class="link-title">Nos Marques</span></a>
+          <a href="#histoire" class="menu-link" data-num="03"><span class="link-num">03</span><span
+              class="link-title">Qui Sommes-Nous ?</span></a>
+          <a href="#modeles" class="menu-link" data-num="04"><span class="link-num">04</span><span
+              class="link-title">Véhicules Phares</span></a>
+          <a href="#services" class="menu-link" data-num="05"><span class="link-num">05</span><span
+              class="link-title">Garantie & SAV</span></a>
+          <a href="#faq" class="menu-link" data-num="06"><span class="link-num">06</span><span class="link-title">FAQ &
+              Financement</span></a>
+        </nav>
+        <div class="menu-details">
+          <div class="detail-block">
+            <div class="detail-label">SHOWROOM CENTRAL</div>
+            <p>Hub Logistique International<br>Export Direct Usine Monde</p>
+          </div>
+          <div class="detail-block">
+            <div class="detail-label">SERVICE COMMERCIAL & SAV</div>
+            <p>contact@sondr-motors.com<br>WhatsApp International : +86 195 8743 9774</p>
+          </div>
+          <div class="detail-cta">
+            <button class="btn-primary" id="menu-reserve-btn">RÉSERVER UN ESSAI SUR ROUTE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Navbar (Original Awwwards) -->
+    <!-- Navbar Épurée Directe (Sans menu déroulant) -->
+    <header>
+      <div class="header-left">
+        <a href="#histoire">À Propos</a>
+        <a href="#catalogue">Catalogue</a>
+      </div>
+      <div class="logo">
+        <a href="#hero" style="text-decoration: none; color: inherit;">MOTORS</a>
+      </div>
+      <div class="header-right">
+        <a href="#faq">FAQ</a>
+        <a href="#contact" id="nav-contact-btn">Contact</a>
+      </div>
+    </header>
+
+    <!-- SECTION 1: HERO SECTION (ORIGINAL AWWWARDS CONSERVÉ) -->
+    <section class="hero-section" id="hero">
+      <div class="video-wrapper">
+        <div class="video-inner">
+          <video width="100%" height="100%" muted loop autoplay playsinline preload="auto">
+            <source src="images/video.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="inner-box">
+        <div class="gallery">
+          <div class="col col-1">
+            <img src="./images/img1.jpg" loading="lazy" class="large" alt="GAC Motor SUV Prestige">
+            <img src="./images/img2.jpg" loading="lazy" class="small" alt="Bestune Berline de Luxe">
+          </div>
+          <div class="col col-2">
+          </div>
+          <div class="col col-3">
+            <img src="./images/img3.jpg" loading="lazy" class="small" alt="BAW 212 Tout-Terrain">
+            <img src="./images/img4.jpg" loading="lazy" class="large" alt="JMC Pick-up Double Cabine">
+          </div>
+        </div>
+      </div>
+      <div class="hero-content">
+        <h1>Bienvenu</h1>
+        <div class="divider"></div>
+        <div class="bottom">
+          <a href="#marques" style="display: inline-flex; align-items: center;" aria-label="Défiler vers le showroom">
+            <img src="./images/arrow-down.png" class="arrow" alt="Scroll">
+          </a>
+          <div class="subtext">Concessionnaire Officiel · FAW · Bestune · JMC · 212 · GAC Motor</div>
+        </div>
+      </div>
+    </section>
+
+        <!-- SECTION 2: DÉFILEMENT INFINI DES MARQUES (EXACT VOITURESCHINOISES STYLE) -->
+    <section class="brands-ticker-section" id="marques">
+      <div class="marquee-section">
+        <div class="marquee-track">
+          <div class="marquee-inner">
+            
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673678/haval-logo-png_seeklogo-316169_lujkw4.png" alt="HAVAL" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">HAVAL</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/chery-3.svg" alt="CHERY" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">CHERY</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673758/mg-logo-png_seeklogo-91883_bjqmra.png" alt="MG" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">MG</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/gwm-2.svg" alt="GWM" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">GWM</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673856/omoda-logo-png_seeklogo-483702_nqjtlu.png" alt="OMODA" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">OMODA</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673894/li-auto-logo-png_seeklogo-473371_eqosmv.png" alt="LI AUTO" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">LI AUTO</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673944/deepal-global-changan-logo-png_seeklogo-613982_k02cly.png" alt="DEEPAL" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">DEEPAL</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/byd-1.svg" alt="BYD" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">BYD</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/changan-automobile-logo.svg" alt="CHANGAN" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">CHANGAN</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673217/jetour-logo-png_seeklogo-524224_gukfmp.png" alt="JETOUR" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">JETOUR</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/geely-logo-2.svg" alt="GEELY" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">GEELY</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/gac-black.svg" alt="GAC MOTOR" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">GAC MOTOR</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772674198/zeekr-logo-png_seeklogo-506013_pacfom.png" alt="ZEEKR" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">ZEEKR</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772674157/voyah-logo-png_seeklogo-657358_rlinm8.png" alt="VOYAH" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">VOYAH</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/nio-1.svg" alt="NIO" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">NIO</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772674053/baic-logo-png_seeklogo-391483_nsvlyb.png" alt="BAIC" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">BAIC</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772674112/dongfeng-logo-png_seeklogo-511934_lwapab.png" alt="DONGFENG" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">DONGFENG</span>
+            <span class="marquee-dot">·</span>
+          </span>
+
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673678/haval-logo-png_seeklogo-316169_lujkw4.png" alt="HAVAL" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">HAVAL</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/chery-3.svg" alt="CHERY" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">CHERY</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673758/mg-logo-png_seeklogo-91883_bjqmra.png" alt="MG" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">MG</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/gwm-2.svg" alt="GWM" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">GWM</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673856/omoda-logo-png_seeklogo-483702_nqjtlu.png" alt="OMODA" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">OMODA</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673894/li-auto-logo-png_seeklogo-473371_eqosmv.png" alt="LI AUTO" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">LI AUTO</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673944/deepal-global-changan-logo-png_seeklogo-613982_k02cly.png" alt="DEEPAL" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">DEEPAL</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/byd-1.svg" alt="BYD" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">BYD</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/changan-automobile-logo.svg" alt="CHANGAN" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">CHANGAN</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772673217/jetour-logo-png_seeklogo-524224_gukfmp.png" alt="JETOUR" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">JETOUR</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/geely-logo-2.svg" alt="GEELY" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">GEELY</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/gac-black.svg" alt="GAC MOTOR" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">GAC MOTOR</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772674198/zeekr-logo-png_seeklogo-506013_pacfom.png" alt="ZEEKR" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">ZEEKR</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772674157/voyah-logo-png_seeklogo-657358_rlinm8.png" alt="VOYAH" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">VOYAH</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://cdn.worldvectorlogo.com/logos/nio-1.svg" alt="NIO" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">NIO</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772674053/baic-logo-png_seeklogo-391483_nsvlyb.png" alt="BAIC" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">BAIC</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          <span class="marquee-item">
+            <span class="marquee-logo-box"><img src="https://res.cloudinary.com/daol8mzeg/image/upload/v1772674112/dongfeng-logo-png_seeklogo-511934_lwapab.png" alt="DONGFENG" class="marquee-logo" loading="lazy"></span>
+            <span class="marquee-name">DONGFENG</span>
+            <span class="marquee-dot">·</span>
+          </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+            <!-- SECTION 3: À PROPOS (GLOBAL & CAROUSEL EXACT STYLE) -->
+    <section class="brand-story-section" id="histoire">
+      <div class="section-container">
+        <div class="meta-badge-row">
+          <span class="meta-tag">// À PROPOS</span>
+          <span class="meta-tag meta-status">PRIX USINE DIRECT · EXPÉDITION MARITIME INTERNATIONALE</span>
+        </div>
+
+        <div class="story-grid">
+          <div class="story-content">
+            <h2 class="story-heading">
+              Véhicules Neufs 0 km au Prix Usine Direct.
+            </h2>
+            <div class="story-body">
+              <p>
+                Partenaire et distributeur direct des plus grands constructeurs automobiles mondiaux (<strong>BYD, Changan, Jetour, Geely, GAC, Chery, 212, JMC</strong>), nous simplifions l'acquisition de véhicules neufs en formule <strong>CIF / FOB complète (Coût, Assurance et Fret inclus)</strong> livrés dans tous les grands ports maritimes et aéroports internationaux.
+              </p>
+              
+              <div class="story-quote-box">
+                <p class="story-quote-text">
+                  « Un protocole d'exportation transparent : réservation directe d'usine, paiement international sécurisé, tracking du navire en direct et fourniture de l'ensemble des documents originaux (Bill of Lading, Certificat de Conformité, Facture Commerciale). »
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-frameless-visual">
+            <div class="stock-slideshow-frame" id="stock-slideshow">
+              <div class="stock-slides-track">
+                <!-- Slide 1: Geely Cowboy -->
+                <a href="voiture.html?id=geely-cowboy-trendy" class="stock-slide active" data-index="0" aria-label="Voir GEELY Cowboy 2025">
+                  <div class="stock-img-wrap">
+                    <img src="https://cdn.sanity.io/images/t3ow1rmc/production/9ace466657840162bbaff2bd9c392fdba7208fb4-750x539.png" alt="GEELY Cowboy" class="stock-car-img" loading="eager">
+                    
+                  </div>
+                  <div class="stock-dark-bar">
+                    <span class="stock-bar-text">GEELY · 2025 · 0KM</span>
+                  </div>
+                </a>
+
+                <!-- Slide 2: Chery Tiggo 8 Pro -->
+                <a href="voiture.html?id=chery-tiggo-8-pro-phev" class="stock-slide" data-index="1" aria-label="Voir CHERY Tiggo 8 Pro">
+                  <div class="stock-img-wrap">
+                    <img src="https://cdn.sanity.io/images/t3ow1rmc/production/0f85444b4771d78fa188b8c7e102049af6bb9745-961x535.png" alt="CHERY Tiggo 8 Pro" class="stock-car-img" loading="lazy">
+                    
+                  </div>
+                  <div class="stock-dark-bar">
+                    <span class="stock-bar-text">CHERY · 2025 · 0KM</span>
+                  </div>
+                </a>
+
+                <!-- Slide 3: Changan UNI-Z -->
+                <a href="voiture.html?id=changan-uni-z-phev" class="stock-slide" data-index="2" aria-label="Voir CHANGAN UNI-Z">
+                  <div class="stock-img-wrap">
+                    <img src="https://cdn.sanity.io/images/t3ow1rmc/production/8d0363dec95279d09f9afc539d386f630902b55d-991x553.jpg" alt="CHANGAN UNI-Z" class="stock-car-img" loading="lazy">
+                    
+                  </div>
+                  <div class="stock-dark-bar">
+                    <span class="stock-bar-text">CHANGAN · 2026 · 0KM</span>
+                  </div>
+                </a>
+
+                <!-- Slide 4: Geely Galaxy L7 -->
+                <a href="voiture.html?id=geely-galaxy-l7" class="stock-slide" data-index="3" aria-label="Voir GEELY Galaxy L7">
+                  <div class="stock-img-wrap">
+                    <img src="https://cdn.sanity.io/images/t3ow1rmc/production/cc5f78d3a86bdb3ef6e5dffaa8bfaa660b15efa8-831x614.jpg" alt="GEELY Galaxy L7" class="stock-car-img" loading="lazy">
+                    
+                  </div>
+                  <div class="stock-dark-bar">
+                    <span class="stock-bar-text">GEELY · 2025 · 0KM</span>
+                  </div>
+                </a>
+
+                <!-- Slide 5: Kaiyi X7 Pro -->
+                <a href="voiture.html?id=kaiyi-x7-pro-mountain" class="stock-slide" data-index="4" aria-label="Voir KAIYI X7 Pro">
+                  <div class="stock-img-wrap">
+                    <img src="https://cdn.sanity.io/images/t3ow1rmc/production/19ea2b8e625b89ffe72bc2c8007480cfcee4cba2-835x468.jpg" alt="KAIYI X7 Pro" class="stock-car-img" loading="lazy">
+                    
+                  </div>
+                  <div class="stock-dark-bar">
+                    <span class="stock-bar-text">KAIYI · 2026 · 0KM</span>
+                  </div>
+                </a>
+
+                <!-- Slide 6: SWM Sawy Tiger -->
+                <a href="voiture.html?id=swm-sawy-tiger" class="stock-slide" data-index="5" aria-label="Voir SWM Sawy Tiger">
+                  <div class="stock-img-wrap">
+                    <img src="https://cdn.sanity.io/images/t3ow1rmc/production/62e1190d48c0c2014fa800823d3ac423cbaaeb1c-732x446.png" alt="SWM Sawy Tiger" class="stock-car-img" loading="lazy">
+                    
+                  </div>
+                  <div class="stock-dark-bar">
+                    <span class="stock-bar-text">SWM · 2025 · 0KM</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CATALOGUE OFFICIEL (DERNIERS MODÈLES AJOUTÉS) -->
+    <section class="residences-catalog-section" id="catalogue">
+      <div class="section-container">
+
+        <div class="vc-catalogue-head">
+          <div class="vc-head-left">
+            <span class="vc-eyebrow-red">NOUVEAUTÉS</span>
+            <h2 class="vc-heading-main">Derniers modèles ajoutés</h2>
+          </div>
+          <a href="#contact" class="vc-link-all">Voir tout le catalogue &rarr;</a>
+        </div>
+
+        <div class="vc-showcase-grid" id="vehicles-grid">
+          <!-- Populated directly by script.js with global card links -->
+        </div>
+
+      </div>
+    </section>
+
+
+
+    
+    <!-- SECTION 5: TÉMOIGNAGES CLIENTS INTERNATIONAUX (CONFIANCE & RETOURS D'EXPÉRIENCE) -->
+    <section class="testimonials-section" id="temoignages">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="meta-tag">// RETOURS D'EXPÉRIENCE CLIENTS</div>
+          <h2 class="section-title">Ce que disent nos clients à travers le monde.</h2>
+          <p class="section-subtitle">Découvrez les retours de particuliers, professionnels et gestionnaires de flottes ayant commandé leurs véhicules neufs en direct d'usine.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- Carte Témoignage 1 -->
+          <div class="testimonial-card">
+            <div class="t-card-top">
+              <div class="t-stars">★★★★★</div>
+            </div>
+            <p class="t-quote">« Commande passée directement avec le département export. Facture proforma reçue sous 12h, tracking maritime du conteneur en direct et réception des titres originaux par DHL. Véhicules reçus neufs 0 km impeccables. »</p>
+            <div class="t-author-box">
+              <div class="t-avatar">KB</div>
+              <div class="t-author-info">
+                <div class="t-name">Karim B.</div>
+                <div class="t-role">Gestionnaire de Flotte · Port d'Abidjan</div>
+                <div class="t-vehicle">Modèle : 2x Geely Cowboy 2025 1.5TD</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carte Témoignage 2 -->
+          <div class="testimonial-card">
+            <div class="t-card-top">
+              <div class="t-stars">★★★★★</div>
+            </div>
+            <p class="t-quote">« Une transparence rare pour de l'export direct d'usine. Le tarif CIF était imbattable comparé aux prix des concessions locales. Dédouanement fluide avec le certificat de conformité et le Bill of Lading d'origine. »</p>
+            <div class="t-author-box">
+              <div class="t-avatar">MD</div>
+              <div class="t-author-info">
+                <div class="t-name">Marc-Antoine D.</div>
+                <div class="t-role">Acheteur Particulier · Port de Marseille-Fos</div>
+                <div class="t-vehicle">Modèle : Chery Tiggo 8 Pro PHEV 2025</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carte Témoignage 3 -->
+          <div class="testimonial-card">
+            <div class="t-card-top">
+              <div class="t-stars">★★★★★</div>
+            </div>
+            <p class="t-quote">« C'est notre troisième commande de flotte professionnelle. Le protocole de virement bancaire international sécurisé et le suivi par satellite rassurent énormément. Véhicules arrivés dans les délais annoncés. »</p>
+            <div class="t-author-box">
+              <div class="t-avatar">AS</div>
+              <div class="t-author-info">
+                <div class="t-name">Amadou S.</div>
+                <div class="t-role">Direction Logistique · Port de Dakar</div>
+                <div class="t-vehicle">Modèle : Changan UNI-Z PHEV & Kaiyi X7 Pro</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bannière Chiffres Clés Confiance -->
+        <div class="trust-metrics-strip">
+          <div class="metric-item">
+            <span class="metric-val">100%</span>
+            <span class="metric-lbl">Véhicules Neufs 0 km Certifiés</span>
+          </div>
+          <div class="metric-sep"></div>
+          <div class="metric-item">
+            <span class="metric-val">45+</span>
+            <span class="metric-lbl">Ports Internationaux Desservis</span>
+          </div>
+          <div class="metric-sep"></div>
+          <div class="metric-item">
+            <span class="metric-val">&lt; 24h</span>
+            <span class="metric-lbl">Délai d'Émission Facture Proforma</span>
+          </div>
+          <div class="metric-sep"></div>
+          <div class="metric-item">
+            <span class="metric-val">5 Ans</span>
+            <span class="metric-lbl">Garantie Constructeur Internationale</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: FOIRE AUX QUESTIONS (FAQ INTERNATIONALE) -->
+    <section class="faq-section" id="faq">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="meta-tag">// FOIRE AUX QUESTIONS EXPORTATION</div>
+          <h2 class="section-title">Tout Savoir Sur L'Achat & L'Expédition Internationale</h2>
+          <p class="section-subtitle">
+            Des réponses claires pour commander votre véhicule neuf en direct usine en toute tranquillité.
+          </p>
+        </div>
+
+        <div class="faq-accordion" id="faq-accordion">
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Quelles sont les 4 étapes pour commander un véhicule en export direct usine ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Le protocole d'exportation directe se déroule de manière 100% sécurisée en 4 étapes clés :
+              </p>
+              <ul style="margin-top: 0.8rem; padding-left: 1.2rem; line-height: 1.7; color: var(--text-muted);">
+                <li><strong>Étape 01 — Sélection & Cotation Proforma :</strong> Choisissez votre modèle et options. Vous
+                  recevez sous 24h une facture proforma internationale officielle détaillée en formule CIF (Coût,
+                  Assurance et Fret maritime inclus).</li>
+                <li><strong>Étape 02 — Commande Usine & Acompte :</strong> Signature du contrat commercial et versement
+                  de l'acompte par virement bancaire sécurisé (SWIFT / TT ou Lettre de Crédit LC). Le véhicule 0 km sort
+                  directement de la chaîne d'assemblage avec contrôle qualité certifié.</li>
+                <li><strong>Étape 03 — Fret Maritime & Tracking Satellite :</strong> Embarquement sécurisé en conteneur
+                  ou navire RORO. Vous recevez le connaissement maritime original (Bill of Lading) et suivez le trajet
+                  du navire en direct par satellite.</li>
+                <li><strong>Étape 04 — Arrivée au Port & Réception :</strong> À l'arrivée dans votre port de
+                  destination, remise immédiate de l'ensemble des titres et documents originaux pour le dédouanement et
+                  la prise en main de votre véhicule neuf.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Que comprend exactement le tarif CIF (Cost, Insurance & Freight) ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Le prix CIF (Incoterm officiel international) comprend : la valeur d'achat du véhicule neuf 0 km à la
+                sortie d'usine, l'assurance maritime tous risques durant la traversée, ainsi que la totalité du fret
+                maritime jusqu'au port de destination de votre choix. Seuls les droits de douane et taxes locales du
+                pays de destination restent à régler à l'arrivée.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Quels sont les délais d'expédition et de transit maritime ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                La sortie d'usine et le chargement au port d'embarquement s'effectuent en 7 à 14 jours ouvrés. Le
+                transit maritime dépend du port de destination : généralement 35 à 45 jours pour l'Afrique et l'Europe,
+                et 20 à 30 jours pour le Moyen-Orient et l'Asie.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Quelles sont les modalités de paiement international ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Les paiements s'effectuent par virement bancaire international sécurisé (SWIFT / TT) ou par Lettre de
+                Crédit bancaire (LC) pour les flottes et commandes d'entreprises : un acompte à la commande pour lancer
+                la réservation d'usine, et le solde avant l'embarquement définitif.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Comment sont garantis les véhicules et les pièces détachées ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Tous nos véhicules sont neufs 0 km d'origine constructeur avec garantie internationale de 5 ans ou 150
+                000 km. Nous assurons également un approvisionnement direct et permanent en pièces d'origine avec
+                expédition express par fret aérien mondial.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER MONDIAL DU SHOWROOM -->
+    <footer class="architectural-footer" id="contact">
+      <div class="footer-container">
+        <div class="footer-hero-text">
+          <div class="footer-sub">// SØNDR MOTORS · PLATEFORME D'EXPORTATION AUTOMOBILE DIRECTE USINE</div>
+          <h2 class="footer-title">BYD · CHANGAN · JETOUR · GEELY · GAC</h2>
+        </div>
+
+        <div class="footer-interactive-row">
+          <div class="footer-signup-box">
+            <div class="signup-title">DEMANDER UNE COTATION CIF OU UN DEVIS PROFORMA ?</div>
+            <p class="signup-sub">Contactez notre département export international pour recevoir un devis officiel
+              personnalisé sous 24h avec calcul du fret maritime vers votre port.</p>
+            <form class="allocation-form" id="footer-allocation-form">
+              <div class="form-input-group">
+                <input type="email" id="footer-email" placeholder="Votre adresse email professionnelle" required>
+                <button type="submit" class="form-submit-btn">RECEVOIR MON DEVIS &rarr;</button>
+              </div>
+              <div class="form-feedback" id="footer-form-feedback"></div>
+            </form>
+          </div>
+
+          <div class="footer-locations">
+            <div class="loc-card">
+              <div class="loc-city">HUB EXPORT ASIE & LOGISTIQUE</div>
+              <div class="loc-type">Guangzhou International Trade Center</div>
+              <div class="loc-coord">📞 WhatsApp International : +86 195 8743 9774</div>
+            </div>
+            <div class="loc-card">
+              <div class="loc-city">SERVICE COMMERCIAL GLOBAL</div>
+              <div class="loc-type">Support Clients International & Flottes</div>
+              <div class="loc-time">✉️ export@sondr-motors.com</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <div class="copyright">
+            &copy; 2026 SØNDR MOTORS GLOBAL. TOUS DROITS RÉSERVÉS.
+          </div>
+          <div class="footer-nav-links">
+            <a href="#hero">Accueil</a>
+            <a href="#marques">Marques</a>
+            <a href="#histoire">À Propos</a>
+            <a href="#catalogue">Catalogue</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <button class="back-to-top" id="back-to-top" aria-label="Revenir en haut">
+            <span>HAUT</span>
+            <span class="arrow-up">&uarr;</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- MODAL DE DEVIS PROFORMA MONDIAL -->
+  <div class="reservation-modal" id="reservation-modal" aria-hidden="true" role="dialog">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-pretitle">// EXPORTATION AUTOMOBILE DIRECTE USINE</span>
+          <h3 class="modal-heading">Demande de Facture Proforma CIF Internationale</h3>
+        </div>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Fermer le modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-config-summary">
+          <div class="m-summary-row">
+            <span class="m-label">Modèle sélectionné :</span>
+            <span class="m-value" id="modal-edition-val">SWM Sawy Tiger 2025</span>
+          </div>
+          <div class="m-summary-row">
+            <span class="m-label">Tarif indicatif CIF :</span>
+            <span class="m-value highlight" id="modal-price-val">7 600 000 FCFA</span>
+          </div>
+        </div>
+
+        <form id="reservation-form" class="reservation-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="res-fname">PRÉNOM</label>
+              <input type="text" id="res-fname" required placeholder="Votre prénom">
+            </div>
+            <div class="form-field">
+              <label for="res-lname">NOM</label>
+              <input type="text" id="res-lname" required placeholder="Votre nom">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="res-email">ADRESSE EMAIL</label>
+            <input type="email" id="res-email" required placeholder="nom@entreprise.com">
+          </div>
+          <div class="form-field">
+            <label for="res-phone">NUMÉRO WHATSAPP / TÉLÉPHONE AVEC INDICATIF PAYS</label>
+            <input type="tel" id="res-phone" required placeholder="+ (Indicatif pays) Numéro">
+          </div>
+          <div class="form-field">
+            <label for="res-region">PAYS & PORT DE DESTINATION SOUHAITÉ</label>
+            <input type="text" id="res-region" required placeholder="Ex: Port de votre ville / Pays de destination"
+              style="width: 100%; padding: 0.9rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius); color: var(--text-primary); font-family: var(--font-main);">
+          </div>
+          <button type="submit" class="btn-primary modal-submit-btn">
+            <span>RECEVOIR MA FACTURE PROFORMA OFFICIELLE</span>
+            <span class="btn-arrow">&rarr;</span>
+          </button>
+        </form>
+
+        <div class="modal-success-screen" id="modal-success" style="display: none;">
+          <div class="success-icon">&#10003;</div>
+          <h4>DEMANDE TRANSMISE AVEC SUCCÈS</h4>
+          <p class="token-display">RÉFÉRENCE PROFORMA : <span id="generated-token">GLOBAL-EXP-9420</span></p>
+          <p class="token-sub">Notre département commercial international prendra contact avec vous sur WhatsApp et par
+            email dans les plus brefs délais avec votre proforma CIF officielle.</p>
+          <button class="btn-primary" id="modal-success-close">FERMER CETTE FENÊTRE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+  <!-- Local Script -->
+  <script src="script.js"></script>
+
+  <!-- BOUTON FLOTTANT WHATSAPP OFFICIEL -->
+  <a href="https://wa.me/8619587439774?text=Bonjour%20MOTORS%20Global,%20je%20souhaite%20obtenir%20des%20renseignements%20sur%20vos%20v%C3%A9hicules%20neufs%20en%20export%20direct." target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" id="floating-wa-btn" aria-label="Contacter sur WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.077-2.029-.475-1.623-.674-2.701-2.316-2.784-2.426-.083-.111-.667-.887-.667-1.689 0-.803.421-1.198.571-1.36.15-.162.33-.203.441-.203.111 0 .222.002.319.006.104.004.243-.039.38.291.144.348.491 1.198.534 1.286.043.088.072.191.014.306-.058.115-.087.187-.174.289-.087.102-.183.228-.261.306-.087.087-.178.182-.077.355.101.173.449.741.964 1.201.662.591 1.221.774 1.394.861.173.087.275.072.376-.044.101-.116.434-.506.55-.68.116-.174.232-.145.39-.087.159.058 1.008.475 1.181.562.173.087.289.13.332.203.043.072.043.419-.101.824z"/>
+    </svg>
+    <span class="wa-tooltip">Discuter sur WhatsApp</span>
+  </a>
+
+</body>
+
+</html>

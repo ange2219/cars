@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détails du Véhicule — Export Direct Usine CIF | MOTORS Global</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Montserrat:wght@500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body.page-vehicle-detail {
+      background: #fafafa;
+      color: #111111;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Main Container */
+    .vehicle-page-main {
+      flex: 1;
+      width: 100%;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+      box-sizing: border-box;
+    }
+
+    .detail-nav-back-bar {
+      margin-bottom: 2rem;
+    }
+
+    .btn-return-catalogue {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #555555;
+      text-decoration: none;
+      padding: 0.5rem 0;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-return-catalogue:hover {
+      color: #a01414;
+      transform: translateX(-5px);
+    }
+
+    .vehicle-page-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .vc-d-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .vc-d-title-box {
+      flex: 1;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .vc-d-brand {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #a01414;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .vc-d-name {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-size: clamp(1.6rem, 3vw, 2.4rem) !important;
+      font-weight: 800 !important;
+      letter-spacing: 0 !important;
+      word-spacing: normal !important;
+      color: #111111 !important;
+      line-height: 1.25 !important;
+      margin: 0 !important;
+      white-space: normal !important;
+    }
+
+    .vc-d-price-box {
+      background: #ffffff;
+      border: 1px solid #f0d5d5;
+      padding: 1.2rem 1.8rem;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      box-shadow: 0 4px 15px rgba(160, 20, 20, 0.05);
+    }
+
+    .vc-d-price-main {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #a01414;
+      line-height: 1;
+    }
+
+    .vc-d-price-sub {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: #777777;
+      margin-top: 0.35rem;
+    }
+
+    .vc-d-destinations {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      padding: 0.9rem 1.4rem;
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      border-radius: 8px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+    }
+
+    .vc-d-dest-title {
+      font-weight: 700;
+      color: #555555;
+    }
+
+    .vc-d-dest-list {
+      display: flex;
+      gap: 1rem;
+      color: #111111;
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+
+    .vc-d-gallery {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .vc-d-slider-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 620px;
+      background: #111111;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .vc-d-main-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .vc-d-thumbs {
+      display: flex;
+      gap: 0.8rem;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+
+    .vc-d-thumb {
+      width: 100px;
+      height: 68px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      cursor: pointer;
+      flex-shrink: 0;
+      opacity: 0.65;
+      transition: all 0.2s ease;
+      background: #f0f0f0;
+    }
+
+    .vc-d-thumb.active,
+    .vc-d-thumb:hover {
+      border-color: #a01414;
+      opacity: 1;
+      transform: translateY(-2px);
+    }
+
+    .vc-d-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .vehicle-page-main {
+        padding: 1.5rem 1rem 3rem;
+      }
+      .vc-d-price-box {
+        align-items: flex-start;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body class="page-vehicle-detail">
+
+  <!-- CONTENU PRINCIPAL PLEIN ÉCRAN (SANS HEADER FLOTTANT) -->
+  <main class="vehicle-page-main">
+    <div class="detail-nav-back-bar">
+      <a href="index.html#catalogue" class="btn-return-catalogue">
+        &larr; retour au catalogue
+      </a>
+    </div>
+
+    <div class="vehicle-page-wrapper" id="car-page-container">
+      <!-- Rendu dynamique complet injecté par script.js -->
+    </div>
+  </main>
+
+  <!-- FOOTER MONDIAL -->
+  <footer class="architectural-footer" id="contact">
+    <div class="footer-container">
+      <div class="footer-hero-text">
+        <div class="footer-sub">// SØNDR MOTORS · PLATEFORME D'EXPORTATION AUTOMOBILE DIRECTE USINE</div>
+        <h2 class="footer-title">BYD · CHANGAN · JETOUR · GEELY · GAC</h2>
+      </div>
+
+      <div class="footer-interactive-row">
+        <div class="footer-signup-box">
+          <div class="signup-title">DEMANDER UNE COTATION CIF OU UN DEVIS PROFORMA ?</div>
+          <p class="signup-sub">Contactez notre département export international pour recevoir un devis officiel personnalisé sous 24h avec calcul du fret maritime vers votre port.</p>
+          <form class="allocation-form" id="footer-allocation-form">
+            <div class="form-input-group">
+              <input type="email" id="footer-email" placeholder="Votre adresse email professionnelle" required>
+              <button type="submit" class="form-submit-btn">RECEVOIR MON DEVIS &rarr;</button>
+            </div>
+            <div class="form-feedback" id="footer-form-feedback"></div>
+          </form>
+        </div>
+
+        <div class="footer-locations">
+          <div class="loc-card">
+            <div class="loc-city">HUB EXPORT ASIE & LOGISTIQUE</div>
+            <div class="loc-type">Guangzhou International Trade Center</div>
+            <div class="loc-coord">📞 WhatsApp International : +86 195 8743 9774</div>
+          </div>
+          <div class="loc-card">
+            <div class="loc-city">SERVICE COMMERCIAL GLOBAL</div>
+            <div class="loc-type">Support Clients International & Flottes</div>
+            <div class="loc-time">✉️ export@sondr-motors.com</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="copyright">
+          &copy; 2026 SØNDR MOTORS GLOBAL. TOUS DROITS RÉSERVÉS.
+        </div>
+        <div class="footer-nav-links">
+          <a href="index.html">Accueil</a>
+          <a href="index.html#marques">Marques</a>
+          <a href="index.html#histoire">À Propos</a>
+          <a href="index.html#catalogue">Catalogue</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL DE DEVIS PROFORMA -->
+  <div class="reservation-modal" id="reservation-modal" aria-hidden="true" role="dialog">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-pretitle">// EXPORTATION AUTOMOBILE DIRECTE USINE</span>
+          <h3 class="modal-heading">Demande de Facture Proforma CIF Internationale</h3>
+        </div>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Fermer le modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-config-summary">
+          <div class="m-summary-row">
+            <span class="m-label">Modèle sélectionné :</span>
+            <span class="m-value" id="modal-edition-val">Véhicule</span>
+          </div>
+          <div class="m-summary-row">
+            <span class="m-label">Tarif indicatif CIF :</span>
+            <span class="m-value highlight" id="modal-price-val">Prix CIF</span>
+          </div>
+        </div>
+
+        <form id="reservation-form" class="reservation-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="res-fname">PRÉNOM</label>
+              <input type="text" id="res-fname" required placeholder="Votre prénom">
+            </div>
+            <div class="form-field">
+              <label for="res-lname">NOM</label>
+              <input type="text" id="res-lname" required placeholder="Votre nom">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="res-email">ADRESSE EMAIL</label>
+            <input type="email" id="res-email" required placeholder="nom@entreprise.com">
+          </div>
+          <div class="form-field">
+            <label for="res-phone">NUMÉRO WHATSAPP / TÉLÉPHONE AVEC INDICATIF PAYS</label>
+            <input type="tel" id="res-phone" required placeholder="+ (Indicatif pays) Numéro">
+          </div>
+          <div class="form-field">
+            <label for="res-region">PAYS & PORT DE DESTINATION SOUHAITÉ</label>
+            <input type="text" id="res-region" required placeholder="Ex: Port de votre ville / Pays de destination" style="width: 100%; padding: 0.9rem; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius); color: var(--text-primary); font-family: var(--font-main);">
+          </div>
+          <button type="submit" class="btn-primary modal-submit-btn">
+            <span>RECEVOIR MA FACTURE PROFORMA OFFICIELLE</span>
+            <span class="btn-arrow">&rarr;</span>
+          </button>
+        </form>
+
+        <div class="modal-success-screen" id="modal-success" style="display: none;">
+          <div class="success-icon">&#10003;</div>
+          <h4>DEMANDE TRANSMISE AVEC SUCCÈS</h4>
+          <p class="token-display">RÉFÉRENCE PROFORMA : <span id="generated-token">GLOBAL-EXP-9420</span></p>
+          <p class="token-sub">Notre département commercial international prendra contact avec vous sur WhatsApp et par email dans les plus brefs délais avec votre proforma CIF officielle.</p>
+          <button class="btn-primary" id="modal-success-close">FERMER CETTE FENÊTRE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+  <!-- BOUTON FLOTTANT WHATSAPP OFFICIEL -->
+  <a href="https://wa.me/8619587439774?text=Bonjour%20MOTORS%20Global,%20je%20souhaite%20obtenir%20des%20renseignements%20sur%20vos%20v%C3%A9hicules%20neufs%20en%20export%20direct." target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" id="floating-wa-btn" aria-label="Contacter sur WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.077-2.029-.475-1.623-.674-2.701-2.316-2.784-2.426-.083-.111-.667-.887-.667-1.689 0-.803.421-1.198.571-1.36.15-.162.33-.203.441-.203.111 0 .222.002.319.006.104.004.243-.039.38.291.144.348.491 1.198.534 1.286.043.088.072.191.014.306-.058.115-.087.187-.174.289-.087.102-.183.228-.261.306-.087.087-.178.182-.077.355.101.173.449.741.964 1.201.662.591 1.221.774 1.394.861.173.087.275.072.376-.044.101-.116.434-.506.55-.68.116-.174.232-.145.39-.087.159.058 1.008.475 1.181.562.173.087.289.13.332.203.043.072.043.419-.101.824z"/>
+    </svg>
+    <span class="wa-tooltip">Discuter sur WhatsApp</span>
+  </a>
+
+</body>
+</html>
