@@ -4856,10 +4856,12 @@ section[id], footer[id] {
   width: 100% !important;
   background: #ffffff !important;
   padding: 0 !important;
-  margin: 0 !important;
+  margin: 4rem 0 0 0 !important;
   border-top: 1px solid #eeeeee !important;
   border-bottom: 1px solid #eeeeee !important;
   overflow: hidden !important;
+  position: relative !important;
+  z-index: 10 !important;
 }
 
 .marquee-section {
