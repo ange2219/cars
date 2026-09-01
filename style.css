@@ -182,23 +182,15 @@ header .header-right {
 
 header .bars {
   order: 4;
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 5px;
-  cursor: pointer;
-  padding: 6px;
-  transition: opacity 0.2s ease;
-}
-
-header .bars:hover {
-  opacity: 0.7;
 }
 
 header .bars div {
-  width: 26px;
+  width: 28px;
   height: 2px;
   background-color: var(--header-color);
-  border-radius: 1px;
 }
 
 header a {
@@ -248,25 +240,29 @@ header a {
     display: none !important;
   }
 
-  /* 1. Le mot MOTORS totalement et strictement à GAUCHE */
+  /* 1. Le Logo totalement et strictement à GAUCHE */
   header .logo {
-    display: block !important;
+    display: flex !important;
+    align-items: center !important;
     order: 1 !important;
     margin: 0 !important;
     padding: 0 !important;
     text-align: left !important;
-    font-size: 1.35rem !important;
-    font-weight: 700 !important;
-    letter-spacing: 2px !important;
   }
 
   header .logo a {
-    display: inline-block !important;
+    display: inline-flex !important;
+    align-items: center !important;
     color: var(--header-color) !important;
     text-decoration: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    text-align: left !important;
+  }
+
+  header .logo img {
+    height: 32px !important;
+    width: auto !important;
+    display: block !important;
   }
 
   /* 2. Les 2 barres du menu déroulant totalement et strictement à DROITE */
@@ -404,7 +400,6 @@ header a {
   flex-direction: column;
   padding: 0.4rem 0 1rem 0;
 }
->>>>>>> ceaeffb (feat: align mobile menu exactly with reference mockup and update hero scroll text)
 
 .menu-nav {
   display: flex;
@@ -528,11 +523,10 @@ header a {
 @media (max-width: 768px) {
   /* Remplacement de la vidéo par le Hero Mobile */
   .hero-section {
-    height: calc(100vh - 1rem) !important;
+    height: 100vh !important;
     min-height: 520px !important;
     position: relative !important;
     overflow: hidden !important;
-    border-radius: var(--radius, 1rem) !important;
   }
 
   .hero-section .video-wrapper,
@@ -558,7 +552,6 @@ header a {
     inset: 0 !important;
     z-index: 1 !important;
     overflow: hidden !important;
-    border-radius: var(--radius, 1rem) !important;
   }
 
   .mobile-slide {
@@ -569,7 +562,6 @@ header a {
     opacity: 0 !important;
     transform: scale(1.06) !important;
     transition: opacity 1.2s ease-in-out, transform 4s ease-out !important;
-    border-radius: var(--radius, 1rem) !important;
   }
 
   .mobile-slide.active {
@@ -586,7 +578,6 @@ header a {
     background: linear-gradient(180deg, rgba(8, 10, 15, 0.45) 0%, rgba(8, 10, 15, 0.2) 40%, rgba(8, 10, 15, 0.9) 100%) !important;
     z-index: 2 !important;
     pointer-events: none !important;
-    border-radius: var(--radius, 1rem) !important;
   }
 
   .hero-section .hero-content {
@@ -637,6 +628,7 @@ header a {
 .gallery img {
   width: 100%;
   border-radius: var(--radius);
+  will-change: transform, opacity;
 }
 
 .gallery .col {
@@ -3092,7 +3084,7 @@ h1 {
 
 
 /* ==========================================================================
-   MENU DÉROULANT MOBILE ESCAMOTABLE & MODAL
+   MENU PLEIN ÉCRAN ESCAMOTABLE & MODAL (CACHÉS PAR DÉFAUT)
    ========================================================================== */
 .fullscreen-menu {
   position: fixed;
@@ -3101,7 +3093,7 @@ h1 {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .fullscreen-menu.open,
@@ -3114,63 +3106,57 @@ h1 {
 .fullscreen-menu-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(8, 10, 15, 0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(14, 16, 22, 0.96);
+  backdrop-filter: blur(24px);
 }
 
 .fullscreen-menu-content {
   position: relative;
   width: 100%;
   height: 100%;
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 1.5rem 1.4rem;
+  padding: 3rem 4rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
+  max-width: 1500px;
+  margin: 0 auto;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
   color: #ffffff;
-  box-sizing: border-box;
 }
 
 .menu-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 1rem;
-  margin-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.5rem;
 }
 
 .menu-tag {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
   letter-spacing: 2px;
   color: var(--accent-gold);
-  font-weight: 700;
 }
 
 .menu-close-btn {
   background: transparent;
   border: none;
   cursor: pointer;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0;
 }
 
 .menu-close-btn span {
   position: absolute;
-  width: 22px;
+  width: 28px;
   height: 2px;
   background-color: #ffffff;
-  transition: transform 0.25s ease;
+  transition: transform 0.3s ease;
 }
 
 .menu-close-btn span:first-child {
@@ -3182,86 +3168,60 @@ h1 {
 }
 
 .menu-body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  padding: 0;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 3rem 0;
 }
 
 .menu-nav {
   display: flex;
   flex-direction: column;
-  gap: 0.85rem;
+  gap: 1.5rem;
 }
 
 .menu-link {
   text-decoration: none;
-  font-family: var(--font-display, sans-serif);
-  font-size: 1.18rem;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
   color: #ffffff;
   display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 0.35rem 0;
-  transition: color 0.2s ease, transform 0.2s ease;
+  align-items: baseline;
+  gap: 1.5rem;
+  transition: color 0.3s, transform 0.3s;
 }
 
-.menu-link:hover,
-.menu-link:active {
+.menu-link:hover {
   color: var(--accent-gold);
-  transform: translateX(4px);
+  transform: translateX(10px);
 }
 
 .link-num {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
   color: var(--accent-gold);
-  opacity: 0.9;
-  letter-spacing: 1px;
-}
-
-.link-title {
-  font-size: 1.18rem;
-  font-weight: 600;
-  letter-spacing: 0.3px;
 }
 
 .menu-details {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-top: 0.8rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 2.5rem;
 }
 
 .detail-block .detail-label {
-  font-family: var(--font-mono, monospace);
-  font-size: 0.68rem;
-  letter-spacing: 1.5px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 2px;
   color: var(--accent-gold);
-  margin-bottom: 0.25rem;
-  text-transform: uppercase;
+  margin-bottom: 0.5rem;
 }
 
 .detail-block p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.85rem;
-  line-height: 1.4;
-}
-
-.detail-cta {
-  margin-top: 0.4rem;
-}
-
-.detail-cta .btn-primary {
-  width: 100%;
-  text-align: center;
-  padding: 0.75rem 1.2rem;
-  font-size: 0.82rem;
-  letter-spacing: 1px;
-  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.05rem;
+  line-height: 1.6;
 }
 
 /* MODAL DE RÉSERVATION / DEVIS */

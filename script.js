@@ -113,13 +113,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
   setTimeout(revealSite, 400);
 
   /* ----------------------------------
-     OUVERTURE ET FERMETURE DU MENU MOBILE & DESKTOP DRAWER
+     OUVERTURE ET FERMETURE DU MENU MOBILE
   ---------------------------------- */
   const fullscreenMenu = document.getElementById('fullscreen-menu');
   const menuCloseBtn = document.getElementById('menu-close-btn');
   const menuBackdrop = document.getElementById('menu-backdrop');
   const menuLinks = document.querySelectorAll('.menu-link, #menu-reserve-btn');
-  const burgerBtns = document.querySelectorAll('#header-bars-btn, .bars, #mobile-burger-btn');
+  const burgerBtns = document.querySelectorAll('#header-bars-btn, .bars');
 
   // Ouvrir
   const openMenu = () => {
@@ -209,11 +209,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     /* ----------------------------------
-<<<<<<< HEAD
-       HERO SECTION SCROLL ANIMATION
-=======
        HERO SECTION SCROLL ANIMATION (VALEURS EXACTES SONDR)
->>>>>>> ceaeffb (feat: align mobile menu exactly with reference mockup and update hero scroll text)
     ---------------------------------- */
     if (window.innerWidth > 768) {
       const tl = gsap.timeline({
