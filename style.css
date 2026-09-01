@@ -2923,6 +2923,10 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .meta-status {
+    display: none !important;
+  }
+
   .section-container {
   max-width: 1360px;
   margin: 0 auto;
