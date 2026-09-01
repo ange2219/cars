@@ -76,8 +76,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   }
 
-  // Fallback de sécurité (700ms max) pour une ouverture ultra-rapide
-  setTimeout(revealSite, 700);
+  // Fallback de sécurité ultra-rapide (400ms max)
+  setTimeout(revealSite, 400);
 
   if (document.querySelector('.hero-section')) {
 
