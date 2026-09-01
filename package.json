@@ -1,9 +1,0 @@
-{
-  "name": "sondr-motors",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Sondr Motors - Luxury EV Showcase & Global Export Platform",
-  "scripts": {
-    "build": "echo Static build ready"
-  }
-}
