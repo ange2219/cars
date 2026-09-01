@@ -2724,15 +2724,6 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  header {
-    width: 96%;
-    padding: 0.6rem 1rem;
-  }
-
-  .menu {
-    display: none;
-  }
-
   h1 {
     font-size: clamp(2rem, 11vw, 3.5rem);
     letter-spacing: -1px;
@@ -3438,87 +3429,6 @@ h1 {
 
 
 
-
-
-
-/* ----------------------------------
-   PREMIUM HEADER TYPOGRAPHY & SPACING
----------------------------------- */
-header {
-  position: fixed;
-  z-index: 100;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 98%;
-  max-width: 1400px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 2.2rem;
-  border-radius: var(--radius);
-  font-family: var(--font-main);
-  box-sizing: border-box;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-  flex: 1;
-  justify-content: flex-start;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-  flex: 1;
-  justify-content: flex-end;
-}
-
-.logo {
-  font-size: 2.1rem;
-  font-weight: 800;
-  color: var(--header-color);
-  font-family: var(--font-display);
-  text-align: center;
-  padding: 0 2.5rem;
-  letter-spacing: 2px;
-  white-space: nowrap;
-  position: static;
-  transform: none;
-}
-
-header a {
-  text-decoration: none;
-  color: var(--header-color);
-  font-family: var(--font-main);
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-  white-space: nowrap;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-header a:hover {
-  opacity: 0.8;
-  transform: translateY(-1px);
-}
-
-@media (max-width: 900px) {
-  .logo {
-    padding: 0 1rem;
-    font-size: 1.5rem;
-  }
-  .header-left, .header-right {
-    gap: 1rem;
-  }
-  header a {
-    font-size: 0.9rem;
-  }
-}
 
 
 
