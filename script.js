@@ -12,6 +12,26 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   /* ----------------------------------
+     HERO VIDEO AUTOPLAY RELIABILITY
+  ---------------------------------- */
+  const heroVideo = document.querySelector('.video-inner video');
+  if (heroVideo) {
+    heroVideo.muted = true;
+    const attemptPlay = () => {
+      const playPromise = heroVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          ['click', 'touchstart', 'scroll', 'mousemove'].forEach(ev => {
+            window.addEventListener(ev, () => { heroVideo.play(); }, { once: true });
+          });
+        });
+      }
+    };
+    attemptPlay();
+    heroVideo.addEventListener('loadeddata', attemptPlay);
+  }
+
+  /* ----------------------------------
      PAGE LOAD ANIMATIONS (Awwwards Original)
   ---------------------------------- */
   if (document.querySelector('.hero-section')) {
