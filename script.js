@@ -1,13 +1,27 @@
-window.addEventListener("load", () => { if (typeof ScrollTrigger !== "undefined") ScrollTrigger.refresh(); });
+// Empêcher le navigateur de restaurer une position de scroll corrompue au rechargement (F5)
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
+window.addEventListener("load", () => {
+  if (typeof ScrollTrigger !== "undefined") {
+    ScrollTrigger.clearScrollMemory('manual');
+    ScrollTrigger.refresh(true);
+  }
+});
 
 document.addEventListener("DOMContentLoaded", (event) => {
+  window.scrollTo(0, 0);
 
   // Register GSAP plugins
   if (typeof gsap !== "undefined") {
-    if (typeof ScrollTrigger !== "undefined" && typeof SplitText !== "undefined") {
+    if (typeof ScrollTrigger !== "undefined") {
+      ScrollTrigger.clearScrollMemory('manual');
       gsap.registerPlugin(ScrollTrigger);
-    } else if (typeof ScrollTrigger !== "undefined") {
-      gsap.registerPlugin(ScrollTrigger);
+    }
+    if (typeof SplitText !== "undefined") {
+      gsap.registerPlugin(SplitText);
     }
   }
 
@@ -168,16 +182,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       // Dynamically calculate inset values for clip-path
       function getInset() {
+        if (!hero || !col2) return { top: 90, left: 0, right: 0, bottom: 90 };
         const heroRect = hero.getBoundingClientRect();
         const colRect = col2.getBoundingClientRect();
 
         const verticalOffset = 90;
 
         return {
-          top: (colRect.top - heroRect.top) + verticalOffset,
-          left: colRect.left - heroRect.left,
-          right: heroRect.right - colRect.right,
-          bottom: (heroRect.bottom - colRect.bottom) + verticalOffset
+          top: Math.max(0, (colRect.top - heroRect.top) + verticalOffset),
+          left: Math.max(0, colRect.left - heroRect.left),
+          right: Math.max(0, heroRect.right - colRect.right),
+          bottom: Math.max(0, (heroRect.bottom - colRect.bottom) + verticalOffset)
         };
       }
 
