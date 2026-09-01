@@ -4217,19 +4217,54 @@ h1 {
 
 @media (max-width: 768px) {
   .vc-showcase-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
   }
   .vc-catalogue-head {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.8rem;
   }
+  .vc-card-item {
+    border-radius: 10px !important;
+  }
+  .vc-card-thumb {
+    padding: 0.4rem !important;
+  }
+  .vc-card-info {
+    padding: 0.7rem 0.65rem 0.85rem !important;
+    gap: 0.25rem !important;
+  }
+  .vc-brand-title {
+    font-size: 0.68rem !important;
+  }
+  .vc-model-title {
+    font-size: 0.82rem !important;
+    line-height: 1.25 !important;
+    -webkit-line-clamp: 2 !important;
+    min-height: 2.1em;
+  }
+  .vc-price-row {
+    padding-top: 0.4rem !important;
+  }
+  .vc-price-val {
+    font-size: 0.95rem !important;
+  }
+  .vc-price-cur {
+    font-size: 0.62rem !important;
+  }
+  .vc-badge-nouveau {
+    font-size: 0.55rem !important;
+    padding: 0.18rem 0.45rem !important;
+    top: 0.4rem !important;
+    left: 0.4rem !important;
+  }
 }
 
 @media (max-width: 480px) {
   .vc-showcase-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
   }
 }
 
@@ -5148,14 +5183,14 @@ section[id], footer[id] {
 @media (max-width: 850px) {
   .vc-showcase-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-    gap: 1rem !important;
+    gap: 0.8rem !important;
   }
 }
 
 @media (max-width: 520px) {
   .vc-showcase-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.2rem !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
   }
 }
 
