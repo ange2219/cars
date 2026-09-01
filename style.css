@@ -347,8 +347,13 @@ header a{
   }
 
   .hero-section .video-wrapper,
-  .hero-section .inner-box {
+  .hero-section .inner-box,
+  .hero-section .gallery,
+  .hero-section .gallery img {
     display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 
   .mobile-hero-slider {

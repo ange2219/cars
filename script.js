@@ -144,75 +144,77 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
     /* ----------------------------------
-       HERO SECTION SCROLL ANIMATION (FLUIDITÉ PARFAITE SANS PAUSE)
+       HERO SECTION SCROLL ANIMATION (DESKTOP EXCLUSIF)
     ---------------------------------- */
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".hero-section",
-        start: "top top",
-        end: "+=100%",
-        scrub: 1,
-        pin: true,
-        invalidateOnRefresh: true
+    if (window.innerWidth > 768) {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".hero-section",
+          start: "top top",
+          end: "+=100%",
+          scrub: 1,
+          pin: true,
+          invalidateOnRefresh: true
+        }
+      });
+
+      // Elements used for clip-path calculation
+      const hero = document.querySelector(".hero-section");
+      const col2 = document.querySelector(".col-2");
+
+      // Dynamically calculate inset values for clip-path
+      function getInset() {
+        const heroRect = hero.getBoundingClientRect();
+        const colRect = col2.getBoundingClientRect();
+
+        const verticalOffset = 90;
+
+        return {
+          top: (colRect.top - heroRect.top) + verticalOffset,
+          left: colRect.left - heroRect.left,
+          right: heroRect.right - colRect.right,
+          bottom: (heroRect.bottom - colRect.bottom) + verticalOffset
+        };
       }
-    });
 
-    // Elements used for clip-path calculation
-    const hero = document.querySelector(".hero-section");
-    const col2 = document.querySelector(".col-2");
+      // Video mask animation
+      tl.to(".video-wrapper", {
+        clipPath: () => {
+          const i = getInset();
+          return `inset(${i.top}px ${i.right}px ${i.bottom}px ${i.left}px round var(--radius))`;
+        },
+        ease: "power2.out",
+        duration: 1
+      }, 0);
 
-    // Dynamically calculate inset values for clip-path
-    function getInset() {
-      const heroRect = hero.getBoundingClientRect();
-      const colRect = col2.getBoundingClientRect();
+      // Video scale animation
+      tl.to(".video-inner", {
+        scale: 0.8,
+        ease: "power2.out",
+        duration: 1
+      }, 0);
 
-      const verticalOffset = 90;
+      // Fade out hero content
+      tl.to(".hero-content", {
+        opacity: 0,
+        ease: "power2.out",
+        duration: 1
+      }, 0);
 
-      return {
-        top: (colRect.top - heroRect.top) + verticalOffset,
-        left: colRect.left - heroRect.left,
-        right: heroRect.right - colRect.right,
-        bottom: (heroRect.bottom - colRect.bottom) + verticalOffset
-      };
+      // Left column images animation
+      tl.fromTo(".col-1 img", 
+        { x: "-200%", y: "150%", opacity: 0 },
+        { x: "0%", y: "0%", opacity: 1, stagger: 0.15, ease: "power3.out", duration: 1 },
+        "-=0.6"
+      );
+
+      // Right column images animation
+      tl.fromTo(".col-3 img", 
+        { x: "200%", y: "150%", opacity: 0 },
+        { x: "0%", y: "0%", opacity: 1, stagger: 0.15, ease: "power3.out", duration: 1 },
+        "-=0.8"
+      );
     }
-
-    // Video mask animation
-    tl.to(".video-wrapper", {
-      clipPath: () => {
-        const i = getInset();
-        return `inset(${i.top}px ${i.right}px ${i.bottom}px ${i.left}px round var(--radius))`;
-      },
-      ease: "power2.out",
-      duration: 1
-    }, 0);
-
-    // Video scale animation
-    tl.to(".video-inner", {
-      scale: 0.8,
-      ease: "power2.out",
-      duration: 1
-    }, 0);
-
-    // Fade out hero content
-    tl.to(".hero-content", {
-      opacity: 0,
-      ease: "power2.out",
-      duration: 1
-    }, 0);
-
-    // Left column images animation
-    tl.fromTo(".col-1 img", 
-      { x: "-200%", y: "150%", opacity: 0 },
-      { x: "0%", y: "0%", opacity: 1, stagger: 0.15, ease: "power3.out", duration: 1 },
-      "-=0.6"
-    );
-
-    // Right column images animation
-    tl.fromTo(".col-3 img", 
-      { x: "200%", y: "150%", opacity: 0 },
-      { x: "0%", y: "0%", opacity: 1, stagger: 0.15, ease: "power3.out", duration: 1 },
-      "-=0.8"
-    );
   }
 
   /* ----------------------------------
