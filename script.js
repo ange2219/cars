@@ -128,25 +128,13 @@ document.addEventListener("DOMContentLoaded", (event) => {
   if (document.querySelector('.hero-section')) {
 
     /* ----------------------------------
-       HEADER SCROLL EFFECT (Exact Original 49% Width + Blur)
+       HEADER SCROLL EFFECT (Exact Original 49% Width + Blur sur Desktop)
     ---------------------------------- */
     if (window.innerWidth > 768) {
       gsap.to('header', {
         backdropFilter: "blur(300px)",
         backgroundColor: "rgba(255, 255, 255, 0.15)",
         width: "49%",
-        "--header-color": "#121212",
-        scrollTrigger: {
-          trigger: 'main',
-          start: 'top top',
-          end: "+=100",
-          scrub: 1,
-        }
-      });
-    } else {
-      gsap.to('header', {
-        backdropFilter: "blur(300px)",
-        backgroundColor: "rgba(255, 255, 255, 0.15)",
         "--header-color": "#121212",
         scrollTrigger: {
           trigger: 'main',
