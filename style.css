@@ -174,7 +174,7 @@ header a{
 }
 
 @media (max-width: 768px) {
-  /* Header Mobile : Logo MOTORS à gauche, 2 barres à droite */
+  /* Header Mobile : UNIQUEMENT MOTORS à gauche et 2 barres à droite */
   header {
     width: calc(100% - 1.4rem) !important;
     top: 0.75rem !important;
@@ -185,31 +185,46 @@ header a{
     box-sizing: border-box !important;
   }
 
-  /* Cache les liens textuels sur mobile */
+  /* Cache formellement TOUS les liens texte du header sur mobile */
   header .header-left,
-  header .header-right {
+  header .header-right,
+  header .menu,
+  header .header-links,
+  header .nav-links,
+  header a:not(.logo a),
+  header > a {
     display: none !important;
   }
 
-  /* Logo totalement à gauche */
-  .logo {
+  /* 1. Le mot MOTORS totalement à gauche */
+  header .logo {
+    display: block !important;
     order: 1 !important;
     margin: 0 !important;
     text-align: left !important;
     font-size: 1.35rem !important;
+    font-weight: 700 !important;
     letter-spacing: 2px !important;
   }
 
-  /* Menu 2 barres totalement à droite */
+  header .logo a {
+    display: inline-block !important;
+    color: var(--header-color) !important;
+    text-decoration: none !important;
+  }
+
+  /* 2. Les 2 barres du menu déroulant totalement à droite */
   header .bars {
     order: 2 !important;
     display: flex !important;
+    flex-direction: column !important;
     margin: 0 !important;
     gap: 5px !important;
     cursor: pointer !important;
   }
 
   header .bars div {
+    display: block !important;
     width: 26px !important;
     height: 2px !important;
     background-color: var(--header-color) !important;

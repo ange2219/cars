@@ -128,22 +128,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
   if (document.querySelector('.hero-section')) {
 
     /* ----------------------------------
-       HEADER SCROLL EFFECT (DESKTOP INTACT 49% Width + Blur)
+       HEADER SCROLL EFFECT (RESTAURÉ 100% : 49% Width + Blur)
     ---------------------------------- */
-    if (document.querySelector('.desktop-header')) {
-      gsap.to('.desktop-header', {
-        backdropFilter: "blur(300px)",
-        backgroundColor: "rgba(255, 255, 255, 0.15)",
-        width: "49%",
-        "--header-color": "#121212",
-        scrollTrigger: {
-          trigger: 'main',
-          start: 'top top',
-          end: "+=100",
-          scrub: 1,
-        }
-      });
-    }
+    gsap.to('header', {
+      backdropFilter: "blur(300px)",
+      backgroundColor: "rgba(255, 255, 255, 0.15)",
+      width: () => (window.innerWidth <= 768 ? "calc(100% - 1.4rem)" : "49%"),
+      "--header-color": "#121212",
+      scrollTrigger: {
+        trigger: 'main',
+        start: 'top top',
+        end: "+=100",
+        scrub: 1,
+      }
+    });
 
     /* ----------------------------------
        HERO SECTION SCROLL ANIMATION
