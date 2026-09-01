@@ -169,7 +169,8 @@ header .logo {
 
 header .logo img {
   height: 38px;
-  width: auto;
+  width: 38px;
+  object-fit: contain;
   display: block;
 }
 
@@ -260,8 +261,9 @@ header a {
   }
 
   header .logo img {
-    height: 32px !important;
-    width: auto !important;
+    height: 34px !important;
+    width: 34px !important;
+    object-fit: contain !important;
     display: block !important;
   }
 
