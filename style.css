@@ -351,9 +351,9 @@ header a {
   font-family: var(--font-mono, 'Space Grotesk', monospace);
   font-size: 0.72rem;
   letter-spacing: 2.2px;
-  color: #c2944b;
+  color: #0f764a;
   font-weight: 700;
-  opacity: 0.85;
+  opacity: 0.95;
 }
 
 .menu-close-btn {
@@ -419,7 +419,7 @@ header a {
 .link-num {
   font-family: var(--font-mono, 'Space Grotesk', monospace);
   font-size: 0.98rem;
-  color: #c2944b;
+  color: #0f764a;
   font-weight: 700;
   letter-spacing: 0.5px;
   min-width: 24px;
@@ -438,7 +438,7 @@ header a {
 
 .menu-link:hover .link-title,
 .menu-link:active .link-title {
-  color: #e5b364;
+  color: #16a34a;
 }
 
 .menu-link:hover,
@@ -465,7 +465,7 @@ header a {
   font-family: var(--font-mono, 'Space Grotesk', monospace);
   font-size: 0.75rem;
   letter-spacing: 2.2px;
-  color: #c2944b;
+  color: #0f764a;
   margin-bottom: 0.55rem;
   text-transform: uppercase;
   font-weight: 700;
@@ -514,10 +514,10 @@ header a {
 .menu-quote-btn:hover,
 .menu-quote-btn:active {
   background: #1d1e23;
-  border-color: #c2944b;
+  border-color: #0f764a;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(194, 148, 75, 0.25);
+  box-shadow: 0 8px 24px rgba(15, 118, 74, 0.3);
 }
 
 @media (max-width: 768px) {
