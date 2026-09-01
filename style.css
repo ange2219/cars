@@ -6081,47 +6081,5 @@ section[id], footer[id] {
 }
 
 
-/* ----------------------------------
-   PERFECT MATHEMATICAL CENTERING OF 'MOTORS' LOGO IN HEADER
----------------------------------- */
-header {
-  display: grid !important;
-  grid-template-columns: 1fr auto 1fr !important;
-  align-items: center !important;
-  box-sizing: border-box !important;
-}
-
-header .header-left {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 1.8rem !important;
-  width: 100% !important;
-}
-
-header .logo {
-  text-align: center !important;
-  justify-self: center !important;
-  margin: 0 !important;
-  padding: 0 1rem !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-
-header .header-right {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-end !important;
-  gap: 1.8rem !important;
-  width: 100% !important;
-}
-
-@media (max-width: 768px) {
-  header {
-    display: flex !important;
-    justify-content: space-between !important;
-  }
-}
 
 

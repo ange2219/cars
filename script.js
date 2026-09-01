@@ -130,18 +130,32 @@ document.addEventListener("DOMContentLoaded", (event) => {
     /* ----------------------------------
        HEADER SCROLL EFFECT (Exact Original 49% Width + Blur)
     ---------------------------------- */
-    gsap.to('header', {
-      backdropFilter: "blur(300px)",
-      backgroundColor: "rgba(255, 255, 255, 0.15)",
-      width: () => (window.innerWidth <= 768 ? "calc(100% - 1.4rem)" : "49%"),
-      "--header-color": "#121212",
-      scrollTrigger: {
-        trigger: 'main',
-        start: 'top top',
-        end: "+=100",
-        scrub: 0.6,
-      }
-    });
+    if (window.innerWidth > 768) {
+      gsap.to('header', {
+        backdropFilter: "blur(300px)",
+        backgroundColor: "rgba(255, 255, 255, 0.15)",
+        width: "49%",
+        "--header-color": "#121212",
+        scrollTrigger: {
+          trigger: 'main',
+          start: 'top top',
+          end: "+=100",
+          scrub: 1,
+        }
+      });
+    } else {
+      gsap.to('header', {
+        backdropFilter: "blur(300px)",
+        backgroundColor: "rgba(255, 255, 255, 0.15)",
+        "--header-color": "#121212",
+        scrollTrigger: {
+          trigger: 'main',
+          start: 'top top',
+          end: "+=100",
+          scrub: 1,
+        }
+      });
+    }
 
     /* ----------------------------------
        HERO SECTION SCROLL ANIMATION (FLUIDITÉ PARFAITE CONTINUE)
