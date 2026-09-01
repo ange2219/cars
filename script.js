@@ -79,23 +79,71 @@ document.addEventListener("DOMContentLoaded", (event) => {
   // Fallback de sécurité ultra-rapide (400ms max)
   setTimeout(revealSite, 400);
 
+  /* ----------------------------------
+     MENU TIROIR MOBILE (BURGER 3 BARRES ROUGES)
+  ---------------------------------- */
+  const mobileBurgerBtn = document.getElementById('mobile-burger-btn');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const mobileDrawerClose = document.getElementById('mobile-drawer-close');
+  const mobileDrawerOverlay = document.getElementById('mobile-drawer-overlay');
+  const mobileDrawerLinks = document.querySelectorAll('.mobile-drawer-link, .mobile-drawer-cta');
+
+  const openMobileDrawer = () => {
+    if (mobileDrawer) {
+      mobileDrawer.classList.add('open');
+      mobileDrawer.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeMobileDrawer = () => {
+    if (mobileDrawer) {
+      mobileDrawer.classList.remove('open');
+      mobileDrawer.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  };
+
+  if (mobileBurgerBtn) mobileBurgerBtn.addEventListener('click', openMobileDrawer);
+  if (mobileDrawerClose) mobileDrawerClose.addEventListener('click', closeMobileDrawer);
+  if (mobileDrawerOverlay) mobileDrawerOverlay.addEventListener('click', closeMobileDrawer);
+  mobileDrawerLinks.forEach(link => link.addEventListener('click', closeMobileDrawer));
+
+  /* ----------------------------------
+     DIAPORAMA MOBILE HERO (4 PHOTOS HAUTE DÉFINITION)
+  ---------------------------------- */
+  const mobileSlides = document.querySelectorAll('.mobile-slide');
+  if (mobileSlides.length > 0) {
+    let currentSlide = 0;
+    const totalSlides = mobileSlides.length;
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      mobileSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentSlide);
+      });
+    }, 3800);
+  }
+
   if (document.querySelector('.hero-section')) {
 
     /* ----------------------------------
-       HEADER SCROLL EFFECT (Exact Original 49% Width + Blur)
+       HEADER SCROLL EFFECT (DESKTOP INTACT 49% Width + Blur)
     ---------------------------------- */
-    gsap.to('header', {
-      backdropFilter: "blur(300px)",
-      backgroundColor: "rgba(255, 255, 255, 0.15)",
-      width: "49%",
-      "--header-color": "#121212",
-      scrollTrigger: {
-        trigger: 'main',
-        start: 'top top',
-        end: "+=100",
-        scrub: 1,
-      }
-    });
+    if (document.querySelector('.desktop-header')) {
+      gsap.to('.desktop-header', {
+        backdropFilter: "blur(300px)",
+        backgroundColor: "rgba(255, 255, 255, 0.15)",
+        width: "49%",
+        "--header-color": "#121212",
+        scrollTrigger: {
+          trigger: 'main',
+          start: 'top top',
+          end: "+=100",
+          scrub: 1,
+        }
+      });
+    }
 
     /* ----------------------------------
        HERO SECTION SCROLL ANIMATION
