@@ -8,13 +8,13 @@
   --bg-card: #ffffff;
   --bg-card-hover: #faf9f6;
   --border-subtle: rgba(25, 24, 22, 0.08);
-  --border-focus: rgba(25, 24, 22, 0.22);
+  --border-focus: rgba(15, 118, 74, 0.3);
   --text-primary: #191816;
   --text-secondary: #65615a;
   --text-muted: #959087;
-  --accent-gold: #a67c3b;
-  --accent-gold-soft: #f4ecdf;
-  --accent-green: #25d366;
+  --accent-gold: #0f764a;
+  --accent-gold-soft: #eaf5ef;
+  --accent-green: #0f764a;
   --shadow-subtle: 0 4px 20px rgba(25, 24, 22, 0.04);
   --shadow-card: 0 10px 30px rgba(25, 24, 22, 0.06);
   --shadow-elevated: 0 20px 45px rgba(25, 24, 22, 0.1);
@@ -68,7 +68,7 @@
 }
 
 .preloader-logo span {
-  color: var(--accent-gold, #a67c3b);
+  color: var(--accent-gold, #0f764a);
   font-weight: 400;
 }
 
@@ -87,7 +87,7 @@
   left: 0;
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #a67c3b, #f4ecdf, #a67c3b);
+  background: linear-gradient(90deg, #0f764a, #1ea367, #0f764a);
   border-radius: 2px;
   animation: preloaderPulse 1.2s infinite ease-in-out;
 }
@@ -162,6 +162,15 @@ header .logo {
   letter-spacing: 2px;
   color: var(--header-color);
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .logo img {
+  height: 38px;
+  width: auto;
+  display: block;
 }
 
 header .header-right {
@@ -173,15 +182,23 @@ header .header-right {
 
 header .bars {
   order: 4;
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 5px;
+  cursor: pointer;
+  padding: 6px;
+  transition: opacity 0.2s ease;
+}
+
+header .bars:hover {
+  opacity: 0.7;
 }
 
 header .bars div {
-  width: 28px;
+  width: 26px;
   height: 2px;
   background-color: var(--header-color);
+  border-radius: 1px;
 }
 
 header a {
@@ -272,9 +289,243 @@ header a {
     background-color: var(--header-color) !important;
     border-radius: 1px !important;
   }
+}
 
+/* --------------------------------------------------------------------------
+   2. CONTENEUR DU MENU ESCAMOTABLE (STYLE LUXE GLOBAL & RESPONSIVE)
+   -------------------------------------------------------------------------- */
+.fullscreen-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+}
 
+.fullscreen-menu.open,
+.fullscreen-menu.active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
 
+.fullscreen-menu-backdrop {
+  position: absolute;
+  inset: 0;
+  background: #08090c;
+  background-image: 
+    radial-gradient(circle at 85% 15%, rgba(35, 40, 52, 0.45) 0%, transparent 60%),
+    radial-gradient(circle at 15% 85%, rgba(20, 24, 32, 0.5) 0%, transparent 65%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cpath d='M-50,80 Q150,160 300,60 T650,140' fill='none' stroke='rgba(255,255,255,0.035)' stroke-width='1.2'/%3E%3Cpath d='M-50,200 Q200,320 380,180 T650,280' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1.2'/%3E%3Cpath d='M-50,340 Q160,460 420,300 T650,420' fill='none' stroke='rgba(255,255,255,0.035)' stroke-width='1.2'/%3E%3Cpath d='M-50,480 Q240,580 450,440 T650,560' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1.2'/%3E%3C/svg%3E");
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+
+.fullscreen-menu-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 1.8rem 1.8rem 2.5rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+/* --------------------------------------------------------------------------
+   3. EN-TÊTE & BOUTON FERMER (CROIX 'X')
+   -------------------------------------------------------------------------- */
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.menu-tag {
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  font-size: 0.72rem;
+  letter-spacing: 2.2px;
+  color: #c2944b;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.menu-close-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.25s ease;
+}
+
+.menu-close-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-close-btn span {
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: transform 0.25s ease;
+}
+
+.menu-close-btn span:first-child {
+  transform: rotate(45deg);
+}
+
+.menu-close-btn span:last-child {
+  transform: rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   4. LIENS DE NAVIGATION DU MENU (01 à 07)
+   -------------------------------------------------------------------------- */
+.menu-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem 0 1rem 0;
+}
+>>>>>>> ceaeffb (feat: align mobile menu exactly with reference mockup and update hero scroll text)
+
+.menu-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.menu-link {
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+  padding: 0.15rem 0;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link-num {
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  font-size: 0.98rem;
+  color: #c2944b;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  min-width: 24px;
+  transition: color 0.2s ease;
+}
+
+.link-title {
+  font-family: var(--font-display, 'Outfit', 'Montserrat', sans-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+
+.menu-link:hover .link-title,
+.menu-link:active .link-title {
+  color: #e5b364;
+}
+
+.menu-link:hover,
+.menu-link:active {
+  transform: translateX(5px);
+}
+
+/* --------------------------------------------------------------------------
+   5. BAS DE PAGE / CONTACT DIRECT & BOUTON COTATION
+   -------------------------------------------------------------------------- */
+.menu-details {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.detail-block {
+  margin-bottom: 1.2rem;
+}
+
+.detail-block .detail-label {
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  font-size: 0.75rem;
+  letter-spacing: 2.2px;
+  color: #c2944b;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.detail-wa-text {
+  font-family: var(--font-main, 'Plus Jakarta Sans', sans-serif);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.detail-wa-link {
+  color: #1e60d0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.detail-wa-link:hover {
+  color: #4388f8;
+}
+
+.menu-quote-btn {
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding: 1.1rem 1.4rem;
+  font-size: 0.9rem;
+  letter-spacing: 1.8px;
+  border-radius: 12px;
+  background: #141517;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  font-weight: 800;
+  font-family: var(--font-mono, 'Space Grotesk', monospace);
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease;
+}
+
+.menu-quote-btn:hover,
+.menu-quote-btn:active {
+  background: #1d1e23;
+  border-color: #c2944b;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(194, 148, 75, 0.25);
+}
+
+@media (max-width: 768px) {
   /* Remplacement de la vidéo par le Hero Mobile */
   .hero-section {
     height: calc(100vh - 1rem) !important;
@@ -2003,7 +2254,8 @@ h1 {
 }
 
 .banner-inner {
-  background: linear-gradient(135deg, #1d1b18 0%, #29241d 100%);
+  background: linear-gradient(135deg, #0b2d20 0%, #061c14 100%);
+  border: 1px solid rgba(15, 118, 74, 0.22);
   border-radius: var(--radius);
   padding: 4.5rem 3rem;
   text-align: center;
@@ -2071,11 +2323,13 @@ h1 {
    ARCHITECTURAL FOOTER (Luxury Contrast)
 ---------------------------------- */
 .architectural-footer {
-  background-color: #171513;
+  background: linear-gradient(175deg, #0a291d 0%, #061e15 100%);
+  border: 1px solid rgba(15, 118, 74, 0.22);
   border-radius: var(--radius);
   margin-top: 2rem;
   padding: 8rem 2rem 3rem;
   color: #ffffff;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
 }
 
 .footer-container {
@@ -4004,7 +4258,7 @@ h1 {
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 1.5px;
-  color: #a01414;
+  color: #0f764a;
   text-transform: uppercase;
 }
 
@@ -4021,7 +4275,7 @@ h1 {
   font-family: var(--font-main);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #a01414;
+  color: #0f764a;
   text-decoration: none;
   transition: opacity 0.2s ease, transform 0.2s ease;
   white-space: nowrap;
@@ -4055,7 +4309,7 @@ h1 {
 
 .vc-card-item:hover {
   transform: translateY(-5px);
-  border-color: #a01414;
+  border-color: #0f764a;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
 
@@ -4082,7 +4336,7 @@ h1 {
   position: absolute;
   top: 0.6rem;
   left: 0.6rem;
-  background: #a01414;
+  background: #0f764a;
   color: #ffffff;
   font-family: var(--font-mono);
   font-size: 0.65rem;
@@ -4107,7 +4361,7 @@ h1 {
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 1px;
-  color: #a01414;
+  color: #0f764a;
   text-transform: uppercase;
 }
 
@@ -4301,7 +4555,7 @@ h1 {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   font-weight: 800;
-  color: #a01414;
+  color: #0f764a;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
@@ -4318,8 +4572,8 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  background: #fcf8f8;
-  border: 1px solid #f0dada;
+  background: #f4faf6;
+  border: 1px solid #d4ebdd;
   padding: 1rem 1.4rem;
   border-radius: 10px;
 }
@@ -4328,7 +4582,7 @@ h1 {
   font-family: var(--font-display);
   font-size: 1.8rem;
   font-weight: 900;
-  color: #a01414;
+  color: #0f764a;
 }
 
 .vc-d-price-sub {
@@ -5555,7 +5809,7 @@ section[id], footer[id] {
   font-family: 'Space Mono', monospace !important;
   font-size: 0.72rem !important;
   font-weight: 700 !important;
-  color: #a01414 !important;
+  color: #0f764a !important;
   letter-spacing: 0.3px !important;
 }
 
@@ -5740,13 +5994,13 @@ section[id], footer[id] {
   font-family: 'Space Mono', monospace !important;
   font-size: 0.72rem !important;
   font-weight: 700 !important;
-  color: #a01414 !important;
+  color: #0f764a !important;
   letter-spacing: 1px !important;
   transition: color 0.25s ease !important;
 }
 
 .stock-slide:hover .stock-brand {
-  color: #ff5252 !important;
+  color: #1aa268 !important;
 }
 
 .stock-model {
@@ -5787,12 +6041,12 @@ section[id], footer[id] {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-size: 0.75rem !important;
   font-weight: 700 !important;
-  color: #a01414 !important;
+  color: #0f764a !important;
   transition: color 0.25s ease !important;
 }
 
 .stock-slide:hover .stock-cta {
-  color: #ff7777 !important;
+  color: #1aa268 !important;
 }
 
 /* Dots navigation bar */
@@ -5822,7 +6076,7 @@ section[id], footer[id] {
 }
 
 .stock-dot.active {
-  background: #a01414 !important;
+  background: #0f764a !important;
   width: 22px !important;
   border-radius: 6px !important;
 }

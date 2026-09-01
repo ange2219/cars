@@ -46,25 +46,44 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     /* Page Entrance Animations */
     if (document.querySelector('.hero-section')) {
+      // Logo scale-in animation
       gsap.from('header .logo', {
-        scale: 0,
-        duration: 0.8,
-        ease: 'back.out(1.7)'
+        scale: 0
       });
 
-      gsap.from('.hero-content h1', {
-        y: 60,
-        opacity: 0,
-        duration: 1,
-        ease: 'power3.out',
-        delay: 0.1
-      });
+      // Split text animation for heading
+      if (typeof SplitText !== "undefined") {
+        try {
+          SplitText.create("h1", {
+            type: "lines",
+            mask: "lines",
+            autoSplit: true,
+            onSplit(self) {
+              return gsap.from(self.lines, {
+                y: 420,
+                duration: 0.8
+              });
+            }
+          });
+        } catch (e) {
+          gsap.from('.hero-content h1', {
+            y: 100,
+            opacity: 0,
+            duration: 0.8
+          });
+        }
+      } else {
+        gsap.from('.hero-content h1', {
+          y: 100,
+          opacity: 0,
+          duration: 0.8
+        });
+      }
 
+      // Divider width animation
       gsap.from('.divider', {
         width: 0,
-        duration: 0.9,
-        ease: 'power2.out',
-        delay: 0.2
+        duration: 1
       });
     }
   };
@@ -94,7 +113,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   setTimeout(revealSite, 400);
 
   /* ----------------------------------
-     MENU PLEIN ÉCRAN ESCAMOTABLE & MOBILE (AUX COULEURS LUXURY DE L'APPLICATION)
+     OUVERTURE ET FERMETURE DU MENU MOBILE & DESKTOP DRAWER
   ---------------------------------- */
   const fullscreenMenu = document.getElementById('fullscreen-menu');
   const menuCloseBtn = document.getElementById('menu-close-btn');
@@ -102,26 +121,44 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const menuLinks = document.querySelectorAll('.menu-link, #menu-reserve-btn');
   const burgerBtns = document.querySelectorAll('#header-bars-btn, .bars, #mobile-burger-btn');
 
+  // Ouvrir
   const openMenu = () => {
     if (fullscreenMenu) {
       fullscreenMenu.classList.add('open');
       fullscreenMenu.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'; // Empêche le défilement de l'arrière-plan
     }
   };
 
+  // Fermer
   const closeMenu = () => {
     if (fullscreenMenu) {
       fullscreenMenu.classList.remove('open');
       fullscreenMenu.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      document.body.style.overflow = ''; // Rétablit le défilement
     }
   };
 
+  // Déclencheurs
   burgerBtns.forEach(btn => btn.addEventListener('click', openMenu));
+
   if (menuCloseBtn) menuCloseBtn.addEventListener('click', closeMenu);
   if (menuBackdrop) menuBackdrop.addEventListener('click', closeMenu);
+
+  // Fermeture automatique lors du clic sur un lien
   menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+  // Bouton de demande de cotation dans le menu
+  const menuReserveBtn = document.getElementById('menu-reserve-btn');
+  if (menuReserveBtn) {
+    menuReserveBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeMenu();
+      if (typeof openModal === 'function') {
+        openModal("Demande de Cotation Proforma", "Sur Devis CIF");
+      }
+    });
+  }
 
   /* ----------------------------------
      DIAPORAMA MOBILE HERO (4 PHOTOS HAUTE DÉFINITION)
@@ -142,7 +179,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   if (document.querySelector('.hero-section')) {
 
     /* ----------------------------------
-       HEADER SCROLL EFFECT (Même transparence et effet verre pour Desktop et Mobile)
+       HEADER SCROLL EFFECT
     ---------------------------------- */
     if (window.innerWidth > 768) {
       gsap.to('header', {
@@ -172,7 +209,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     /* ----------------------------------
+<<<<<<< HEAD
        HERO SECTION SCROLL ANIMATION
+=======
+       HERO SECTION SCROLL ANIMATION (VALEURS EXACTES SONDR)
+>>>>>>> ceaeffb (feat: align mobile menu exactly with reference mockup and update hero scroll text)
     ---------------------------------- */
     if (window.innerWidth > 768) {
       const tl = gsap.timeline({
@@ -192,7 +233,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       // Dynamically calculate inset values for clip-path
       function getInset() {
-        if (!hero || !col2) return { top: 90, left: 0, right: 0, bottom: 90 };
         const heroRect = hero.getBoundingClientRect();
         const colRect = col2.getBoundingClientRect();
 
@@ -1138,10 +1178,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const carId = urlParams.get('id');
     const selectedCar = vcExactCars.find(c => c.id === carId) || vcExactCars[0];
 
-    document.title = `${selectedCar.brand} ${selectedCar.title} — Export Direct Usine CIF | MOTORS Global`;
+    document.title = `${selectedCar.brand} ${selectedCar.title} — Export Direct Usine CIF | THE KEY GROUP Global`;
 
     const waMsg = encodeURIComponent(`Bonjour, je souhaite commander ou recevoir une cotation proforma CIF internationale pour le véhicule ${selectedCar.brand} ${selectedCar.title} (${selectedCar.priceFormatted}).`);
-    const waLink = `https://wa.me/8619587439774?text=${waMsg}`;
+    const waLink = `https://wa.me/22990303245?text=${waMsg}`;
 
     carPageContainer.innerHTML = `
       <!-- En-tête du Véhicule -->
@@ -1309,7 +1349,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       const waMsg = encodeURIComponent(`Bonjour, je suis ${fname} (${phone}). Je viens d'envoyer une demande de cotation proforma CIF pour le modèle ${model} avec destination : ${port}.`);
       setTimeout(() => {
-        window.open(`https://wa.me/8619587439774?text=${waMsg}`, '_blank');
+        window.open(`https://wa.me/22990303245?text=${waMsg}`, '_blank');
       }, 1200);
     });
   }
