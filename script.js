@@ -201,22 +201,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }, 0);
 
     // Left column images animation
-    tl.from(".col-1 img", {
-      x: "-200%",
-      y: "150%",
-      stagger: 0.15,
-      ease: "power3.out",
-      duration: 1
-    }, "-=0.6");
+    tl.fromTo(".col-1 img", 
+      { x: "-200%", y: "150%", opacity: 0 },
+      { x: "0%", y: "0%", opacity: 1, stagger: 0.15, ease: "power3.out", duration: 1 },
+      "-=0.6"
+    );
 
     // Right column images animation
-    tl.from(".col-3 img", {
-      x: "200%",
-      y: "150%",
-      stagger: 0.15,
-      ease: "power3.out",
-      duration: 1
-    }, "-=0.8");
+    tl.fromTo(".col-3 img", 
+      { x: "200%", y: "150%", opacity: 0 },
+      { x: "0%", y: "0%", opacity: 1, stagger: 0.15, ease: "power3.out", duration: 1 },
+      "-=0.8"
+    );
   }
 
   /* ----------------------------------
