@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   if (document.querySelector('.hero-section')) {
 
     /* ----------------------------------
-       HEADER SCROLL EFFECT (RESTAURÉ 100% : 49% Width + Blur)
+       HEADER SCROLL EFFECT (Exact Original 49% Width + Blur)
     ---------------------------------- */
     gsap.to('header', {
       backdropFilter: "blur(300px)",
@@ -144,14 +144,14 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
     /* ----------------------------------
-       HERO SECTION SCROLL ANIMATION (DESKTOP EXCLUSIF)
+       HERO SECTION SCROLL ANIMATION (Exact Original 100% Intact)
     ---------------------------------- */
     if (window.innerWidth > 768) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero-section",
           start: "top top",
-          end: "+=100%",
+          end: "+=120%",
           scrub: 1,
           pin: true,
           invalidateOnRefresh: true
@@ -202,18 +202,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
       }, 0);
 
       // Left column images animation
-      tl.fromTo(".col-1 img", 
-        { x: "-200%", y: "150%", opacity: 0 },
-        { x: "0%", y: "0%", opacity: 1, stagger: 0.15, ease: "power3.out", duration: 1 },
-        "-=0.6"
-      );
+      tl.from(".col-1 img", {
+        x: "-200%",
+        y: "150%",
+        stagger: 0.15,
+        ease: "power3.out", clearProps: "all",
+        duration: 1
+      }, "-=0.6");
 
       // Right column images animation
-      tl.fromTo(".col-3 img", 
-        { x: "200%", y: "150%", opacity: 0 },
-        { x: "0%", y: "0%", opacity: 1, stagger: 0.15, ease: "power3.out", duration: 1 },
-        "-=0.8"
-      );
+      tl.from(".col-3 img", {
+        x: "200%",
+        y: "150%",
+        stagger: 0.15,
+        ease: "power3.out", clearProps: "all",
+        duration: 1
+      }, "-=0.8");
     }
   }
 
