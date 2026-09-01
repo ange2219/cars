@@ -172,18 +172,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     /* ----------------------------------
-       HERO SECTION SCROLL ANIMATION (FLUIDITÉ PARFAITE SANS AUCUNE PAUSE)
+       HERO SECTION SCROLL ANIMATION (DÉFILEMENT NATUREL SANS AUCUN BLOCAGE NI PAUSE)
     ---------------------------------- */
     if (window.innerWidth > 768) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero-section",
           start: "top top",
-          end: "+=65%",
+          end: "bottom top",
           scrub: 1,
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
+          pin: false,
           invalidateOnRefresh: true
         }
       });
