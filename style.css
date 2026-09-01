@@ -140,16 +140,16 @@ header .bars div{
 }
 
 header .bars {
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 5px;
 }
 
-header .flex {
+header .header-left,
+header .header-right {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 6rem;
+  gap: 3rem;
 }
 
 .logo {
@@ -159,11 +159,6 @@ header .flex {
   color: var(--header-color);
 }
 
-.menu {
-  display: flex;
-  gap: 3rem;
-}
-
 header a{
   text-decoration: none;
   color: var(--header-color);
@@ -171,83 +166,54 @@ header a{
 }
 
 /* ==========================================================================
-   MOBILE DEDICATED HEADER, DRAWER & HERO SLIDER (STRICTEMENT MASQUÉ SUR PC)
+   MOBILE HERO & RESPONSIVE HEADER
    ========================================================================== */
-.mobile-only-header,
 .mobile-drawer,
 .mobile-hero-slider {
   display: none !important;
 }
 
 @media (max-width: 768px) {
-  /* Masquer le header desktop sur mobile */
-  header.desktop-header {
-    display: none !important;
-  }
-
-  /* Afficher le header mobile dédié */
-  .mobile-only-header {
+  /* Header Mobile : Logo MOTORS à gauche, 2 barres à droite */
+  header {
+    width: calc(100% - 1.4rem) !important;
+    top: 0.75rem !important;
+    padding: 0.75rem 1.2rem !important;
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-    position: fixed !important;
-    top: 1.2rem !important;
-    left: 1.2rem !important;
-    right: 1.2rem !important;
-    z-index: 100 !important;
-    padding: 0 !important;
-    background: transparent !important;
     box-sizing: border-box !important;
   }
 
-  .mobile-brand-box {
+  /* Cache les liens textuels sur mobile */
+  header .header-left,
+  header .header-right {
+    display: none !important;
+  }
+
+  /* Logo totalement à gauche */
+  .logo {
+    order: 1 !important;
+    margin: 0 !important;
+    text-align: left !important;
+    font-size: 1.35rem !important;
+    letter-spacing: 2px !important;
+  }
+
+  /* Menu 2 barres totalement à droite */
+  header .bars {
+    order: 2 !important;
     display: flex !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    text-decoration: none !important;
-  }
-
-  .mobile-car-icon {
-    width: 26px !important;
-    height: 26px !important;
-    fill: #e63946 !important;
-  }
-
-  .mobile-brand-title {
-    font-size: 1.3rem !important;
-    font-weight: 900 !important;
-    letter-spacing: 2.5px !important;
-    color: #e63946 !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-    text-transform: uppercase !important;
-  }
-
-  /* 3 Barres Rouges du Burger */
-  .mobile-burger-btn {
-    width: 38px !important;
-    height: 38px !important;
-    background: transparent !important;
-    border: none !important;
-    cursor: pointer !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: flex-end !important;
+    margin: 0 !important;
     gap: 5px !important;
-    padding: 4px !important;
+    cursor: pointer !important;
   }
 
-  .mobile-burger-btn span {
-    display: block !important;
-    height: 3px !important;
-    background-color: #e63946 !important;
-    border-radius: 2px !important;
-    transition: all 0.3s ease !important;
+  header .bars div {
+    width: 26px !important;
+    height: 2px !important;
+    background-color: var(--header-color) !important;
   }
-
-  .mobile-burger-btn span:nth-child(1) { width: 28px !important; }
-  .mobile-burger-btn span:nth-child(2) { width: 24px !important; }
-  .mobile-burger-btn span:nth-child(3) { width: 28px !important; }
 
   /* Mobile Drawer Menu */
   .mobile-drawer {

@@ -80,9 +80,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
   setTimeout(revealSite, 400);
 
   /* ----------------------------------
-     MENU TIROIR MOBILE (BURGER 3 BARRES ROUGES)
+     MENU TIROIR MOBILE (OUVERTURE VIA LES 2 BARRES)
   ---------------------------------- */
-  const mobileBurgerBtn = document.getElementById('mobile-burger-btn');
+  const mobileBurgerBtns = document.querySelectorAll('#header-bars-btn, .bars, #mobile-burger-btn');
   const mobileDrawer = document.getElementById('mobile-drawer');
   const mobileDrawerClose = document.getElementById('mobile-drawer-close');
   const mobileDrawerOverlay = document.getElementById('mobile-drawer-overlay');
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   };
 
-  if (mobileBurgerBtn) mobileBurgerBtn.addEventListener('click', openMobileDrawer);
+  mobileBurgerBtns.forEach(btn => btn.addEventListener('click', openMobileDrawer));
   if (mobileDrawerClose) mobileDrawerClose.addEventListener('click', closeMobileDrawer);
   if (mobileDrawerOverlay) mobileDrawerOverlay.addEventListener('click', closeMobileDrawer);
   mobileDrawerLinks.forEach(link => link.addEventListener('click', closeMobileDrawer));
