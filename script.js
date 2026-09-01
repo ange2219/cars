@@ -139,21 +139,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
         trigger: 'main',
         start: 'top top',
         end: "+=100",
-        scrub: 1,
+        scrub: 0.6,
       }
     });
 
     /* ----------------------------------
-       HERO SECTION SCROLL ANIMATION (Exact Original 100% Intact)
+       HERO SECTION SCROLL ANIMATION (FLUIDITÉ PARFAITE CONTINUE)
     ---------------------------------- */
     if (window.innerWidth > 768) {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero-section",
           start: "top top",
-          end: "+=120%",
-          scrub: 1,
+          end: "+=100%",
+          scrub: 0.6,
           pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
           invalidateOnRefresh: true
         }
       });
@@ -198,26 +200,28 @@ document.addEventListener("DOMContentLoaded", (event) => {
       tl.to(".hero-content", {
         opacity: 0,
         ease: "power2.out",
-        duration: 1
+        duration: 0.8
       }, 0);
 
-      // Left column images animation
+      // Left column images animation (synchronisé fluide)
       tl.from(".col-1 img", {
         x: "-200%",
         y: "150%",
-        stagger: 0.15,
-        ease: "power3.out", clearProps: "all",
+        stagger: 0.1,
+        ease: "power2.out",
+        clearProps: "all",
         duration: 1
-      }, "-=0.6");
+      }, 0.2);
 
-      // Right column images animation
+      // Right column images animation (synchronisé fluide)
       tl.from(".col-3 img", {
         x: "200%",
         y: "150%",
-        stagger: 0.15,
-        ease: "power3.out", clearProps: "all",
+        stagger: 0.1,
+        ease: "power2.out",
+        clearProps: "all",
         duration: 1
-      }, "-=0.8");
+      }, 0.2);
     }
   }
 
