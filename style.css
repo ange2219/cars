@@ -703,10 +703,11 @@ video {
 }
 
 h1 {
-  font-size: 20vw;
-  font-weight: 500;
-  letter-spacing: -12px;
-  line-height: 0.8;
+  font-size: clamp(2.5rem, 5vw, 4.2rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -2px !important;
+  line-height: 1 !important;
+  margin: 0 !important;
 }
 
 .divider {
@@ -2916,9 +2917,9 @@ h1 {
 
 @media (max-width: 768px) {
   h1 {
-    font-size: clamp(2rem, 11vw, 3.5rem);
-    letter-spacing: -1px;
-    line-height: 1;
+    font-size: clamp(1.8rem, 6.5vw, 2.4rem) !important;
+    letter-spacing: -1px !important;
+    line-height: 1.05 !important;
   }
 
   .standards-grid, .concierge-services-grid {
