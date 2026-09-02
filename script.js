@@ -25,26 +25,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
   }
 
-  /* ----------------------------------
-     LENIS SMOOTH SCROLL (EXACT HEADPHONE V2 SETUP)
-  ---------------------------------- */
-  if (typeof Lenis !== "undefined") {
-    const lenis = new Lenis();
-
-    if (typeof ScrollTrigger !== "undefined") {
-      lenis.on('scroll', ScrollTrigger.update);
-      ScrollTrigger.addEventListener("refresh", () => {
-        lenis.update();
-      });
-    }
-
-    if (typeof gsap !== 'undefined') {
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
-      gsap.ticker.lagSmoothing(0);
-    }
-  }
 
   /* ----------------------------------
      LUXURY PRELOADER CURTAIN (GARANTIE ZERO FLASH)
