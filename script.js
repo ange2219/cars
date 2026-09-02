@@ -237,9 +237,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
         scrollTrigger: {
           trigger: ".hero-section",
           start: "top top",
-          end: "+=100%",
-          scrub: 0.3,
-          pin: true,
+          end: "bottom 30%",
+          scrub: 0.4,
           onRefresh: computeInset
         }
       });
