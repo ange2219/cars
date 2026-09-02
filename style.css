@@ -296,7 +296,7 @@ header a {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.4s ease;
 }
 
 .fullscreen-menu.open,
@@ -316,6 +316,12 @@ header a {
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cpath d='M-50,80 Q150,160 300,60 T650,140' fill='none' stroke='rgba(255,255,255,0.035)' stroke-width='1.2'/%3E%3Cpath d='M-50,200 Q200,320 380,180 T650,280' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1.2'/%3E%3Cpath d='M-50,340 Q160,460 420,300 T650,420' fill='none' stroke='rgba(255,255,255,0.035)' stroke-width='1.2'/%3E%3Cpath d='M-50,480 Q240,580 450,440 T650,560' fill='none' stroke='rgba(255,255,255,0.03)' stroke-width='1.2'/%3E%3C/svg%3E");
   backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fullscreen-menu.open .fullscreen-menu-backdrop {
+  opacity: 1;
 }
 
 .fullscreen-menu-content {
@@ -332,6 +338,14 @@ header a {
   -webkit-overflow-scrolling: touch;
   color: #ffffff;
   box-sizing: border-box;
+  transform: translateY(-16px) scale(0.98);
+  opacity: 0;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.fullscreen-menu.open .fullscreen-menu-content {
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -344,6 +358,15 @@ header a {
   padding-bottom: 0.6rem;
   margin-bottom: 0.8rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition-delay: 0.05s;
+}
+
+.fullscreen-menu.open .menu-header {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .menu-tag {
@@ -373,6 +396,7 @@ header a {
 .menu-close-btn:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
 }
 
 .menu-close-btn span {
@@ -392,7 +416,7 @@ header a {
 }
 
 /* --------------------------------------------------------------------------
-   4. LIENS DE NAVIGATION DU MENU (01 à 07)
+   4. LIENS DE NAVIGATION DU MENU (ANIMATION EN CASCADE ÉLÉGANTE)
    -------------------------------------------------------------------------- */
 .menu-body {
   display: flex;
@@ -412,8 +436,18 @@ header a {
   align-items: baseline;
   gap: 1.25rem;
   padding: 0.15rem 0;
-  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
 }
+
+.fullscreen-menu.open .menu-link:nth-child(1) { transition-delay: 0.08s; opacity: 1; transform: translateY(0); }
+.fullscreen-menu.open .menu-link:nth-child(2) { transition-delay: 0.13s; opacity: 1; transform: translateY(0); }
+.fullscreen-menu.open .menu-link:nth-child(3) { transition-delay: 0.18s; opacity: 1; transform: translateY(0); }
+.fullscreen-menu.open .menu-link:nth-child(4) { transition-delay: 0.23s; opacity: 1; transform: translateY(0); }
+.fullscreen-menu.open .menu-link:nth-child(5) { transition-delay: 0.28s; opacity: 1; transform: translateY(0); }
+.fullscreen-menu.open .menu-link:nth-child(6) { transition-delay: 0.33s; opacity: 1; transform: translateY(0); }
+.fullscreen-menu.open .menu-link:nth-child(7) { transition-delay: 0.38s; opacity: 1; transform: translateY(0); }
 
 .link-num {
   font-family: var(--font-mono, 'Space Grotesk', monospace);
@@ -422,7 +456,7 @@ header a {
   font-weight: 700;
   letter-spacing: 0.5px;
   min-width: 24px;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .link-title {
@@ -432,17 +466,18 @@ header a {
   color: #ffffff;
   letter-spacing: -0.2px;
   line-height: 1.2;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .menu-link:hover .link-title,
 .menu-link:active .link-title {
   color: #16a34a;
+  transform: translateX(4px);
 }
 
-.menu-link:hover,
-.menu-link:active {
-  transform: translateX(5px);
+.menu-link:hover .link-num,
+.menu-link:active .link-num {
+  transform: translateX(2px);
 }
 
 /* --------------------------------------------------------------------------
