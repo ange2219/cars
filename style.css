@@ -589,17 +589,20 @@ header a {
 
   .hero-section .hero-content {
     z-index: 5 !important;
-    bottom: 1.5rem !important;
+    bottom: 1.2rem !important;
+    padding: 0 0.5rem !important;
   }
 
   .hero-section .hero-content h1 {
-    font-size: 16vw !important;
-    letter-spacing: -2px !important;
+    font-size: clamp(2rem, 8vw, 2.8rem) !important;
+    letter-spacing: -1px !important;
+    font-weight: 700 !important;
+    line-height: 1.05 !important;
   }
 
   .hero-section .divider {
-    width: 90% !important;
-    margin: 0.5rem auto !important;
+    width: 92% !important;
+    margin: 0.4rem auto !important;
   }
 
   .hero-section .subtext {
