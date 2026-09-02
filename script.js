@@ -209,46 +209,45 @@ document.addEventListener("DOMContentLoaded", (event) => {
     }
 
     /* ----------------------------------
-       HERO SECTION SCROLL ANIMATION (VALEURS EXACTES SONDR)
+       HERO SECTION SCROLL ANIMATION (ULTRA-FLUIDE GPU ACCELERATED)
     ---------------------------------- */
     if (window.innerWidth > 768) {
+      const hero = document.querySelector(".hero-section");
+      const col2 = document.querySelector(".col-2");
+
+      let cachedInset = { top: 90, left: 0, right: 0, bottom: 90 };
+
+      function computeInset() {
+        if (!hero || !col2) return;
+        const heroRect = hero.getBoundingClientRect();
+        const colRect = col2.getBoundingClientRect();
+        const verticalOffset = 90;
+        cachedInset = {
+          top: Math.round((colRect.top - heroRect.top) + verticalOffset),
+          left: Math.round(colRect.left - heroRect.left),
+          right: Math.round(heroRect.right - colRect.right),
+          bottom: Math.round((heroRect.bottom - colRect.bottom) + verticalOffset)
+        };
+      }
+
+      computeInset();
+      window.addEventListener('resize', computeInset);
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".hero-section",
           start: "top top",
-          end: "+=120%",
-          scrub: 1,
+          end: "+=100%",
+          scrub: 0.3,
           pin: true,
-          invalidateOnRefresh: true
+          onRefresh: computeInset
         }
       });
 
-      // Elements used for clip-path calculation
-      const hero = document.querySelector(".hero-section");
-      const col2 = document.querySelector(".col-2");
-
-      // Dynamically calculate inset values for clip-path
-      function getInset() {
-        const heroRect = hero.getBoundingClientRect();
-        const colRect = col2.getBoundingClientRect();
-
-        const verticalOffset = 90;
-
-        return {
-          top: (colRect.top - heroRect.top) + verticalOffset,
-          left: colRect.left - heroRect.left,
-          right: heroRect.right - colRect.right,
-          bottom: (heroRect.bottom - colRect.bottom) + verticalOffset
-        };
-      }
-
-      // Video mask animation
+      // Video mask animation (using cached inset without layout thrashing)
       tl.to(".video-wrapper", {
-        clipPath: () => {
-          const i = getInset();
-          return `inset(${i.top}px ${i.right}px ${i.bottom}px ${i.left}px round var(--radius))`;
-        },
-        ease: "power2.out",
+        clipPath: () => `inset(${cachedInset.top}px ${cachedInset.right}px ${cachedInset.bottom}px ${cachedInset.left}px round var(--radius))`,
+        ease: "none",
         duration: 1
       }, 0);
 
