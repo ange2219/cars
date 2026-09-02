@@ -709,7 +709,6 @@ img.large {
   will-change: clip-path, transform;
   transform: translateZ(0);
   backface-visibility: hidden;
-  contain: paint;
 }
 
 .video-inner {
