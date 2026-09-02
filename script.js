@@ -262,23 +262,23 @@ document.addEventListener("DOMContentLoaded", (event) => {
         duration: 1
       }, 0);
 
-      // Left column images animation
+      // Left column images animation (synchronized entrance)
       tl.from(".col-1 img", {
-        x: "-200%",
-        y: "150%",
-        stagger: 0.15,
-        ease: "power3.out",
-        duration: 1
-      }, "-=0.6");
+        x: "-140%",
+        y: "90%",
+        stagger: 0.1,
+        ease: "power2.out",
+        duration: 0.9
+      }, 0.05);
 
-      // Right column images animation
+      // Right column images animation (synchronized entrance)
       tl.from(".col-3 img", {
-        x: "200%",
-        y: "150%",
-        stagger: 0.15,
-        ease: "power3.out",
-        duration: 1
-      }, "-=0.8");
+        x: "140%",
+        y: "90%",
+        stagger: 0.1,
+        ease: "power2.out",
+        duration: 0.9
+      }, 0.05);
     }
   }
 
