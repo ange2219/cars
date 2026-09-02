@@ -200,7 +200,7 @@ header .bars {
 header .bars div {
   width: 28px;
   height: 2px;
-  background-color: var(--header-color);
+  background-color: #0f764a !important;
 }
 
 header a {
@@ -297,7 +297,7 @@ header a {
     display: block !important;
     width: 26px !important;
     height: 2px !important;
-    background-color: var(--header-color) !important;
+    background-color: #0f764a !important;
     border-radius: 1px !important;
   }
 }
