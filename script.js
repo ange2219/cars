@@ -26,6 +26,35 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   /* ----------------------------------
+     LENIS LUXURY SMOOTH SCROLL ENGINE
+  ---------------------------------- */
+  if (typeof Lenis !== "undefined") {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 0.85,
+      touchMultiplier: 1.5,
+      infinite: false,
+    });
+
+    lenis.on('scroll', () => {
+      if (typeof ScrollTrigger !== 'undefined') {
+        ScrollTrigger.update();
+      }
+    });
+
+    if (typeof gsap !== 'undefined') {
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+    }
+  }
+
+  /* ----------------------------------
      LUXURY PRELOADER CURTAIN (GARANTIE ZERO FLASH)
   ---------------------------------- */
   const preloader = document.getElementById('site-preloader');
