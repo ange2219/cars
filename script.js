@@ -1579,34 +1579,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 
-  /* ----------------------------------
-     DÉFILEMENT INFINI DES TÉMOIGNAGES (EXCLUSIF MOBILE)
-  ---------------------------------- */
-  function initMobileTestimonialsMarquee() {
-    const track = document.querySelector('.testimonials-track');
-    if (!track) return;
-    
-    if (window.innerWidth <= 768) {
-      if (!track.dataset.cloned) {
-        const cards = Array.from(track.querySelectorAll('.testimonial-card:not(.testimonial-clone)'));
-        cards.forEach(card => {
-          const clone = card.cloneNode(true);
-          clone.classList.add('testimonial-clone');
-          clone.setAttribute('aria-hidden', 'true');
-          track.appendChild(clone);
-        });
-        track.dataset.cloned = 'true';
-      }
-    } else {
-      if (track.dataset.cloned) {
-        const clones = track.querySelectorAll('.testimonial-clone');
-        clones.forEach(c => c.remove());
-        delete track.dataset.cloned;
-      }
-    }
-  }
+  });
 
-  initMobileTestimonialsMarquee();
-  window.addEventListener('resize', initMobileTestimonialsMarquee);
-
-});
