@@ -1448,22 +1448,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
       });
     }
 
-    // 3. Cartes du Catalogue : Apparition progressive en cascade
-    const carCards = gsap.utils.toArray('.vc-card-item');
-    if (carCards.length > 0) {
-      gsap.from(carCards, {
-        y: 50,
-        opacity: 0,
-        duration: 0.9,
-        stagger: 0.09,
-        ease: "power3.out", clearProps: "all",
-        scrollTrigger: {
-          trigger: '.vc-showcase-grid',
-          start: "top 85%",
-          toggleActions: "play none none none"
-        }
-      });
-    }
 
     // 4. Cartes de Témoignages
     const tCards = gsap.utils.toArray('.testimonial-card');
