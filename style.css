@@ -529,7 +529,7 @@ header a {
     overflow: hidden !important;
     padding: 0.6rem !important;
     box-sizing: border-box !important;
-    background: #080a0f !important;
+    background: #ffffff !important;
   }
 
   .hero-section .video-wrapper,
@@ -556,7 +556,8 @@ header a {
     border-radius: 24px !important;
     z-index: 1 !important;
     overflow: hidden !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+    background: #ffffff !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08) !important;
   }
 
   .mobile-slide {
