@@ -1166,6 +1166,80 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   /* ----------------------------------
+     STANDALONE FULL CATALOGUE PAGE: CATALOGUE.HTML
+  ---------------------------------- */
+  const fullCatalogueGrid = document.getElementById("full-catalogue-grid");
+  if (fullCatalogueGrid) {
+    const searchInput = document.getElementById("cat-search-input");
+    const countBadge = document.getElementById("cat-count-badge");
+    const tabButtons = document.querySelectorAll(".cat-tab-btn");
+
+    let activeBrand = "ALL";
+    let searchTerm = "";
+
+    function renderFullCatalogue() {
+      const filteredCars = vcExactCars.filter(c => {
+        const matchesBrand = activeBrand === "ALL" || c.brand.toUpperCase() === activeBrand.toUpperCase();
+        const fullText = `${c.brand} ${c.title} ${c.category || ''} ${c.priceFormatted}`.toLowerCase();
+        const matchesSearch = !searchTerm || fullText.includes(searchTerm);
+        return matchesBrand && matchesSearch;
+      });
+
+      if (countBadge) {
+        countBadge.textContent = `${filteredCars.length} VÉHICULE${filteredCars.length > 1 ? 'S' : ''} DISPONIBLE${filteredCars.length > 1 ? 'S' : ''}`;
+      }
+
+      if (filteredCars.length === 0) {
+        fullCatalogueGrid.innerHTML = `
+          <div class="no-results-box">
+            <h3>Aucun véhicule trouvé</h3>
+            <p>Aucun modèle ne correspond à votre recherche "${searchTerm}". Essayez d'autres mots-clés ou sélectionnez une autre marque.</p>
+          </div>
+        `;
+        return;
+      }
+
+      fullCatalogueGrid.innerHTML = filteredCars.map(c => `
+        <a href="voiture.html?id=${c.id}" class="vc-card-item" style="text-decoration: none;">
+          <div class="vc-card-thumb">
+            <img src="${c.images[0]}" alt="${c.brand} ${c.title}" loading="lazy">
+            <span class="vc-badge-nouveau">0 KM</span>
+          </div>
+          <div class="vc-card-info">
+            <div class="vc-brand-title">${c.brand}</div>
+            <h3 class="vc-model-title">${c.title}</h3>
+            <div class="vc-price-row">
+              <span class="vc-price-val">${c.priceNum}</span>
+              <span class="vc-price-cur">FCFA</span>
+            </div>
+          </div>
+        </a>
+      `).join('');
+    }
+
+    // Initial Render
+    renderFullCatalogue();
+
+    // Tab Filters
+    tabButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        tabButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeBrand = btn.getAttribute("data-brand") || "ALL";
+        renderFullCatalogue();
+      });
+    });
+
+    // Search Input
+    if (searchInput) {
+      searchInput.addEventListener("input", (e) => {
+        searchTerm = e.target.value.trim().toLowerCase();
+        renderFullCatalogue();
+      });
+    }
+  }
+
+  /* ----------------------------------
      STANDALONE VEHICLE PAGE: RENDER ON VOITURE.HTML
   ---------------------------------- */
   const carPageContainer = document.getElementById("car-page-container");

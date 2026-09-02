@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue Complet des Véhicules Neufs 0 km — Export CIF Direct Usine | THE KEY GROUP Global</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / WhatsApp / Facebook Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="THE KEY GROUP">
+  <meta property="og:title" content="Catalogue Complet des Véhicules Neufs — Export Direct Usine CIF">
+  <meta property="og:description" content="Explorez l'ensemble de notre catalogue de véhicules neufs 0 km certifiés direct constructeur aux tarifs d'exportation maritime CIF.">
+  <meta property="og:image" content="https://cars-tau-sandy.vercel.app/images/og-preview.png">
+  <meta property="og:image:secure_url" content="https://cars-tau-sandy.vercel.app/images/og-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="474">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/the-key-group-icon.svg">
+  <link rel="alternate icon" type="image/png" href="images/the-key-group-icon.png">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body.page-catalogue {
+      background: #f8f8fa;
+      color: #111111;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navigation Bar */
+    .catalogue-top-nav {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .catalogue-nav-inner {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .catalogue-logo-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: #111111;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.3px;
+    }
+
+    .catalogue-logo-badge {
+      background: #0f764a;
+      color: #ffffff;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .catalogue-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-nav-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #555555;
+      padding: 0.5rem 0.9rem;
+      border-radius: 8px;
+      background: #f1f1f4;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-home:hover {
+      background: #e4e4e9;
+      color: #111111;
+    }
+
+    .btn-nav-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: #25D366;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-wa:hover {
+      background: #1eb956;
+      transform: translateY(-1px);
+    }
+
+    /* Main Container */
+    .catalogue-main-wrap {
+      flex: 1;
+      width: 100%;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+      box-sizing: border-box;
+    }
+
+    .catalogue-page-head {
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .catalogue-head-titles {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .catalogue-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0f764a;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .catalogue-main-title {
+      font-family: 'Outfit', 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin: 0;
+      color: #111111;
+      line-height: 1.1;
+    }
+
+    .catalogue-sub {
+      color: #666677;
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* Controls Bar: Search & Filter Tabs */
+    .catalogue-controls-bar {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 14px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+    }
+
+    .catalogue-search-row {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      width: 100%;
+    }
+
+    .catalogue-search-input {
+      flex: 1;
+      padding: 0.85rem 1.1rem;
+      background: #f6f6f9;
+      border: 1px solid #e2e2e8;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: #111111;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .catalogue-search-input:focus {
+      border-color: #0f764a;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(15, 118, 74, 0.12);
+    }
+
+    .catalogue-count-badge {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0f764a;
+      background: #eaf5ef;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    .catalogue-filter-tabs {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.3rem;
+      scrollbar-width: thin;
+    }
+
+    .cat-tab-btn {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1px solid #e5e5eb;
+      background: #ffffff;
+      color: #444444;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .cat-tab-btn:hover {
+      background: #f2f2f6;
+      border-color: #d5d5dd;
+    }
+
+    .cat-tab-btn.active {
+      background: #111111;
+      color: #ffffff;
+      border-color: #111111;
+    }
+
+    /* Grid of vehicles */
+    .catalogue-grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
+      width: 100%;
+    }
+
+    @media (max-width: 1024px) {
+      .catalogue-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .catalogue-grid-container {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .catalogue-nav-inner {
+        padding: 0.8rem 1rem;
+      }
+      .catalogue-main-wrap {
+        padding: 1.5rem 1rem 4rem;
+      }
+    }
+
+    .no-results-box {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #e8e8ee;
+    }
+
+    .no-results-box h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: #111111;
+    }
+
+    .no-results-box p {
+      color: #666677;
+      font-size: 0.95rem;
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-whatsapp-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      background: #25D366;
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .floating-whatsapp-btn:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 15px 30px rgba(37, 211, 102, 0.5);
+    }
+  </style>
+</head>
+<body class="page-catalogue">
+
+  <!-- TOP NAVIGATION BAR -->
+  <nav class="catalogue-top-nav">
+    <div class="catalogue-nav-inner">
+      <a href="index.html" class="catalogue-logo-link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f764a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="7.5" cy="15.5" r="5.5"/>
+          <path d="m21 2-9.6 9.6"/>
+          <path d="m15.5 7.5 3 3L22 7l-3-3"/>
+        </svg>
+        <span>THE KEY GROUP</span>
+        <span class="catalogue-logo-badge">CATALOGUE OFFICIEL</span>
+      </a>
+
+      <div class="catalogue-nav-actions">
+        <a href="index.html" class="btn-nav-home">
+          <span>&larr; Accueil</span>
+        </a>
+        <a href="https://wa.me/22990303245" target="_blank" rel="noopener noreferrer" class="btn-nav-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8.01 12.27C8.14 12.44 9.76 14.94 12.24 16.01C12.83 16.27 13.28 16.42 13.64 16.53C14.25 16.72 14.8 16.69 15.24 16.63C15.73 16.56 16.74 16.02 16.95 15.43C17.16 14.83 17.16 14.33 17.1 14.22C17.04 14.11 16.88 14.05 16.64 13.93C16.39 13.81 15.19 13.22 14.97 13.14C14.74 13.06 14.58 13.02 14.41 13.27C14.25 13.51 13.78 14.06 13.63 14.22C13.49 14.39 13.35 14.41 13.1 14.29C12.86 14.17 12.07 13.91 11.13 13.07C10.4 12.42 9.91 11.62 9.77 11.37C9.62 11.13 9.75 11 9.87 10.88C9.98 10.77 10.12 10.59 10.24 10.45C10.36 10.31 10.4 10.21 10.48 10.05C10.56 9.88 10.52 9.74 10.46 9.62C10.4 9.5 9.93 8.35 9.73 7.87C9.53 7.39 9.34 7.46 9.19 7.45C9.05 7.45 8.89 7.44 8.72 7.44L8.53 7.33Z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CATALOGUE CONTAINER -->
+  <main class="catalogue-main-wrap">
+    
+    <div class="catalogue-page-head">
+      <div class="catalogue-head-titles">
+        <span class="catalogue-tag">// EXPORTATION DIRECTE USINE CIF</span>
+        <h1 class="catalogue-main-title">Tous les Véhicules Neufs</h1>
+        <p class="catalogue-sub">Prix d'exportation sortie d'usine · 0 km certifié · Assurance maritime et transport portuaire CIF inclus.</p>
+      </div>
+    </div>
+
+    <!-- CONTROLS: SEARCH + BRAND TABS -->
+    <div class="catalogue-controls-bar">
+      <div class="catalogue-search-row">
+        <input type="text" id="cat-search-input" class="catalogue-search-input" placeholder="Rechercher une marque, un modèle (ex: BYD, Geely, 7 places, PHEV...)">
+        <div class="catalogue-count-badge" id="cat-count-badge">18 VÉHICULES DISPONIBLES</div>
+      </div>
+
+      <div class="catalogue-filter-tabs" id="cat-brand-tabs">
+        <button class="cat-tab-btn active" data-brand="ALL">Tous les modèles</button>
+        <button class="cat-tab-btn" data-brand="BYD">BYD</button>
+        <button class="cat-tab-btn" data-brand="GEELY">GEELY</button>
+        <button class="cat-tab-btn" data-brand="CHERY">CHERY</button>
+        <button class="cat-tab-btn" data-brand="CHANGAN">CHANGAN</button>
+        <button class="cat-tab-btn" data-brand="JETOUR">JETOUR</button>
+        <button class="cat-tab-btn" data-brand="HAVAL">HAVAL</button>
+        <button class="cat-tab-btn" data-brand="ZEEKR">ZEEKR</button>
+        <button class="cat-tab-btn" data-brand="GAC">GAC</button>
+        <button class="cat-tab-btn" data-brand="KAIYI">KAIYI</button>
+        <button class="cat-tab-btn" data-brand="SWM">SWM</button>
+        <button class="cat-tab-btn" data-brand="SOUEAST">SOUEAST</button>
+      </div>
+    </div>
+
+    <!-- FULL CATALOGUE GRID -->
+    <div class="catalogue-grid-container" id="full-catalogue-grid">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+  </main>
+
+  <!-- MODAL DE COTATION PROFORMA OFFICIELLE -->
+  <div class="modal-backdrop" id="reservation-modal" style="display: none;">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close-btn" aria-label="Fermer la fenêtre">&times;</button>
+      <div class="modal-body">
+        <div class="modal-header">
+          <div class="meta-tag">// DEMANDE DE FACTURE PROFORMA OFFICIELLE</div>
+          <h3 id="modal-car-title">Formulaire Proforma Export CIF</h3>
+          <p class="modal-price" id="modal-car-price">Sur Devis CIF</p>
+        </div>
+
+        <form class="modal-form" id="proforma-form">
+          <div class="form-group">
+            <label for="res-name">Nom et Prénom / Raison Sociale :</label>
+            <input type="text" id="res-name" required placeholder="Ex: Jean Dupont / Société SARL">
+          </div>
+          <div class="form-group">
+            <label for="res-phone">Numéro WhatsApp (avec indicatif pays) :</label>
+            <input type="tel" id="res-phone" required placeholder="Ex: +229 90 00 00 00">
+          </div>
+          <div class="form-group">
+            <label for="res-email">Adresse Email professionnelle :</label>
+            <input type="email" id="res-email" required placeholder="Ex: contact@votre-entreprise.com">
+          </div>
+          <div class="form-group">
+            <label for="res-region">Port de livraison / Ville de destination :</label>
+            <input type="text" id="res-region" required placeholder="Ex: Port d'Abidjan, Cotonou, Lomé, Dakar, Marseille...">
+          </div>
+          <button type="submit" class="btn-primary modal-submit-btn">
+            <span>RECEVOIR MA FACTURE PROFORMA OFFICIELLE</span>
+            <span class="btn-arrow">&rarr;</span>
+          </button>
+        </form>
+
+        <div class="modal-success-screen" id="modal-success" style="display: none;">
+          <div class="success-icon">&#10003;</div>
+          <h4>DEMANDE TRANSMISE AVEC SUCCÈS</h4>
+          <p class="token-display">RÉFÉRENCE PROFORMA : <span id="generated-token">GLOBAL-EXP-9420</span></p>
+          <p class="token-sub">Notre département commercial international prendra contact avec vous sur WhatsApp et par email dans les plus brefs délais avec votre proforma CIF officielle.</p>
+          <button class="btn-primary" id="modal-success-close">FERMER CETTE FENÊTRE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOUTON FLOTTANT WHATSAPP OFFICIEL -->
+  <a href="https://wa.me/22990303245" target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" aria-label="Discuter sur WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#ffffff" style="display: block;">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8.01 12.27C8.14 12.44 9.76 14.94 12.24 16.01C12.83 16.27 13.28 16.42 13.64 16.53C14.25 16.72 14.8 16.69 15.24 16.63C15.73 16.56 16.74 16.02 16.95 15.43C17.16 14.83 17.16 14.33 17.1 14.22C17.04 14.11 16.88 14.05 16.64 13.93C16.39 13.81 15.19 13.22 14.97 13.14C14.74 13.06 14.58 13.02 14.41 13.27C14.25 13.51 13.78 14.06 13.63 14.22C13.49 14.39 13.35 14.41 13.1 14.29C12.86 14.17 12.07 13.91 11.13 13.07C10.4 12.42 9.91 11.62 9.77 11.37C9.62 11.13 9.75 11 9.87 10.88C9.98 10.77 10.12 10.59 10.24 10.45C10.36 10.31 10.4 10.21 10.48 10.05C10.56 9.88 10.52 9.74 10.46 9.62C10.4 9.5 9.93 8.35 9.73 7.87C9.53 7.39 9.34 7.46 9.19 7.45C9.05 7.45 8.89 7.44 8.72 7.44L8.53 7.33Z"/>
+    </svg>
+    <span class="wa-tooltip">Discuter sur WhatsApp</span>
+  </a>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
