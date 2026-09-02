@@ -527,6 +527,9 @@ header a {
     min-height: 520px !important;
     position: relative !important;
     overflow: hidden !important;
+    padding: 0.6rem !important;
+    box-sizing: border-box !important;
+    background: #080a0f !important;
   }
 
   .hero-section .video-wrapper,
@@ -549,14 +552,17 @@ header a {
   .mobile-hero-slider {
     display: block !important;
     position: absolute !important;
-    inset: 0 !important;
+    inset: 0.6rem !important;
+    border-radius: 24px !important;
     z-index: 1 !important;
     overflow: hidden !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
   }
 
   .mobile-slide {
     position: absolute !important;
     inset: 0 !important;
+    border-radius: 24px !important;
     background-size: cover !important;
     background-position: center center !important;
     opacity: 0 !important;
