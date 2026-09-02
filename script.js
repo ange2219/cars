@@ -196,36 +196,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
        HEADER SCROLL EFFECT
     ---------------------------------- */
     /* ----------------------------------
-       HEADER SCROLL EFFECT (OPTIMISÉ HAUTE PERFORMANCE)
+       HEADER SCROLL EFFECT (ZERO-COST CSS CLASS TOGGLE)
     ---------------------------------- */
-    if (window.innerWidth > 768) {
-      gsap.to('header', {
-        backgroundColor: "rgba(255, 255, 255, 0.88)",
-        backdropFilter: "blur(12px)",
-        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.06)",
-        width: "49%",
-        "--header-color": "#121212",
-        duration: 0.35,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: 'main',
-          start: 'top -50px',
-          toggleActions: "play none none reverse"
-        }
-      });
-    } else {
-      gsap.to('header', {
-        backgroundColor: "rgba(255, 255, 255, 0.92)",
-        backdropFilter: "blur(10px)",
-        boxShadow: "0 4px 16px rgba(0, 0, 0, 0.06)",
-        "--header-color": "#121212",
-        duration: 0.35,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: 'main',
-          start: 'top -40px',
-          toggleActions: "play none none reverse"
-        }
+    const headerEl = document.querySelector('header');
+    if (headerEl) {
+      ScrollTrigger.create({
+        trigger: 'main',
+        start: 'top -40px',
+        onEnter: () => headerEl.classList.add('header-scrolled'),
+        onLeaveBack: () => headerEl.classList.remove('header-scrolled')
       });
     }
 

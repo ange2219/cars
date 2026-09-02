@@ -131,7 +131,7 @@ header {
   z-index: 50;
   top: 1rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateZ(0);
   width: 99%;
   margin: auto;
   display: flex;
@@ -139,6 +139,17 @@ header {
   justify-content: space-between;
   padding: 0.8rem 1.2rem;
   border-radius: var(--radius);
+  border: 1px solid transparent;
+  transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1), width 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  will-change: transform;
+}
+
+header.header-scrolled {
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07) !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  width: 49% !important;
+  --header-color: #121212 !important;
 }
 
 header .bars div{
@@ -226,6 +237,11 @@ header a {
     background: transparent;
     border-radius: var(--radius) !important;
     z-index: 1000 !important;
+  }
+
+  header.header-scrolled {
+    width: calc(100% - 1.6rem) !important;
+    background: rgba(255, 255, 255, 0.96) !important;
   }
 
   /* Cache formellement TOUS les liens texte du header sur mobile */
