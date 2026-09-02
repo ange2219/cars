@@ -26,25 +26,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
   }
 
   /* ----------------------------------
-     LENIS LUXURY SMOOTH SCROLL ENGINE
+     LENIS SMOOTH SCROLL (EXACT HEADPHONE V2 SETUP)
   ---------------------------------- */
   if (typeof Lenis !== "undefined") {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      orientation: 'vertical',
-      gestureOrientation: 'vertical',
-      smoothWheel: true,
-      wheelMultiplier: 0.85,
-      touchMultiplier: 1.5,
-      infinite: false,
-    });
+    const lenis = new Lenis();
 
-    lenis.on('scroll', () => {
-      if (typeof ScrollTrigger !== 'undefined') {
-        ScrollTrigger.update();
-      }
-    });
+    if (typeof ScrollTrigger !== "undefined") {
+      lenis.on('scroll', ScrollTrigger.update);
+      ScrollTrigger.addEventListener("refresh", () => {
+        lenis.update();
+      });
+    }
 
     if (typeof gsap !== 'undefined') {
       gsap.ticker.add((time) => {
