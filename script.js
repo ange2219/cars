@@ -103,24 +103,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
   if (heroVideo) {
     heroVideo.muted = true;
-    const attemptPlay = () => {
-      heroVideo.play().then(() => {
-        setTimeout(revealSite, 150);
-      }).catch(() => {
-        setTimeout(revealSite, 300);
-      });
-    };
-
-    if (heroVideo.readyState >= 2) {
-      attemptPlay();
-    } else {
-      heroVideo.addEventListener('loadeddata', attemptPlay, { once: true });
-      heroVideo.addEventListener('playing', () => { setTimeout(revealSite, 100); }, { once: true });
-    }
+    heroVideo.play().catch(() => {});
   }
 
-  // Fallback rapide (350ms max pour une fluidité instantanée)
-  setTimeout(revealSite, 350);
+  // Laisse exactement 1,5 seconde (1500ms) pour charger complètement tous les assets et éliminer tout flash
+  setTimeout(revealSite, 1500);
 
   /* ----------------------------------
      OUVERTURE ET FERMETURE DU MENU MOBILE
