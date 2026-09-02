@@ -195,29 +195,36 @@ document.addEventListener("DOMContentLoaded", (event) => {
     /* ----------------------------------
        HEADER SCROLL EFFECT
     ---------------------------------- */
+    /* ----------------------------------
+       HEADER SCROLL EFFECT (OPTIMISÉ HAUTE PERFORMANCE)
+    ---------------------------------- */
     if (window.innerWidth > 768) {
       gsap.to('header', {
-        backdropFilter: "blur(300px)",
-        backgroundColor: "rgba(255, 255, 255, 0.15)",
+        backgroundColor: "rgba(255, 255, 255, 0.88)",
+        backdropFilter: "blur(12px)",
+        boxShadow: "0 4px 20px rgba(0, 0, 0, 0.06)",
         width: "49%",
         "--header-color": "#121212",
+        duration: 0.35,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: 'main',
-          start: 'top top',
-          end: "+=100",
-          scrub: 1,
+          start: 'top -50px',
+          toggleActions: "play none none reverse"
         }
       });
     } else {
       gsap.to('header', {
-        backdropFilter: "blur(300px)",
-        backgroundColor: "rgba(255, 255, 255, 0.15)",
+        backgroundColor: "rgba(255, 255, 255, 0.92)",
+        backdropFilter: "blur(10px)",
+        boxShadow: "0 4px 16px rgba(0, 0, 0, 0.06)",
         "--header-color": "#121212",
+        duration: 0.35,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: 'main',
-          start: 'top top',
-          end: "+=100",
-          scrub: 1,
+          start: 'top -40px',
+          toggleActions: "play none none reverse"
         }
       });
     }
