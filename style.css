@@ -2915,10 +2915,6 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .footer-locations {
-    grid-template-columns: 1fr;
-  }
-
   .form-row {
     grid-template-columns: 1fr;
   }
@@ -2928,17 +2924,179 @@ h1 {
   }
 
   .section-container {
-  max-width: 1360px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 1rem !important;
+  }
+
+  /* --- FAQ MOBILE COMPACT --- */
+  .faq-section {
+    padding: 3rem 0 2.5rem !important;
+  }
+
+  .faq-section .section-title {
+    font-size: 1.35rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .faq-section .section-subtitle {
+    font-size: 0.82rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .faq-accordion {
+    gap: 0.65rem !important;
+  }
+
+  .faq-item {
+    border-radius: 10px !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .faq-question {
+    padding: 0.95rem 1rem !important;
+    font-size: 0.88rem !important;
+    line-height: 1.35 !important;
+    gap: 0.75rem !important;
+  }
+
+  .faq-icon {
+    font-size: 1.1rem !important;
+  }
+
+  .faq-item.active .faq-answer {
+    padding: 0 1rem 1rem !important;
+  }
+
+  .faq-answer p, 
+  .faq-answer ul, 
+  .faq-answer li {
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+  }
+
+  /* --- CONTACT & FOOTER MOBILE COMPACT --- */
+  .architectural-footer {
+    padding: 2.8rem 1.1rem 2rem !important;
+    margin-top: 1.5rem !important;
+    border-radius: 12px !important;
+  }
+
+  .footer-hero-text {
+    margin-bottom: 1.8rem !important;
+  }
+
+  .footer-sub {
+    font-size: 0.68rem !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 0.4rem !important;
+  }
 
   .footer-title {
-    font-size: 13vw;
+    font-size: 1.35rem !important;
+    line-height: 1.15 !important;
+    letter-spacing: -0.5px !important;
+  }
+
+  .footer-interactive-row {
+    grid-template-columns: 1fr !important;
+    gap: 1.8rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .footer-signup-box {
+    gap: 0.8rem !important;
+  }
+
+  .signup-title {
+    font-size: 0.82rem !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1.35 !important;
+  }
+
+  .signup-sub {
+    font-size: 0.78rem !important;
+    line-height: 1.5 !important;
+  }
+
+  .form-input-group {
+    flex-direction: column !important;
+    background: transparent !important;
+    border: none !important;
+    gap: 0.5rem !important;
+    max-width: 100% !important;
+  }
+
+  .form-input-group input {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px !important;
+    padding: 0.75rem 0.9rem !important;
+    font-size: 0.85rem !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .form-submit-btn {
+    border-radius: 8px !important;
+    padding: 0.8rem 1rem !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.5px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-sizing: border-box !important;
+  }
+
+  .footer-locations {
+    grid-template-columns: 1fr !important;
+    gap: 0.9rem !important;
+  }
+
+  .loc-card {
+    padding: 0.9rem 1rem !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 10px !important;
+    gap: 0.25rem !important;
+  }
+
+  .loc-city {
+    font-size: 0.78rem !important;
+    letter-spacing: 0.5px !important;
+  }
+
+  .loc-type {
+    font-size: 0.74rem !important;
+  }
+
+  .loc-time, .loc-coord {
+    font-size: 0.76rem !important;
+    margin-top: 0.2rem !important;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: flex-start !important;
+    padding-top: 1.5rem !important;
+  }
+
+  .copyright {
+    font-size: 0.74rem !important;
+  }
+
+  .footer-nav-links {
+    flex-wrap: wrap !important;
+    gap: 0.8rem !important;
+    font-size: 0.78rem !important;
   }
 
   .banner-inner {
-    padding: 3rem 1.5rem;
+    padding: 2.5rem 1.2rem !important;
   }
 }
 
@@ -5301,265 +5459,51 @@ section[id], footer[id] {
 ---------------------------------- */
 .testimonials-section {
   padding: 5.5rem 0 5rem !important;
-  background: #fbfbfb !important;
-  border-top: 1px solid #f0f0f0 !important;
-  border-bottom: 1px solid #f0f0f0 !important;
-}
-
-.testimonials-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 1.8rem !important;
-  margin-top: 2.5rem !important;
-}
-
-@media (max-width: 950px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.4rem !important;
-  }
-}
-
-.testimonial-card {
-  background: #ffffff !important;
-  border: 1px solid #eaeaea !important;
-  border-radius: 14px !important;
-  padding: 2rem 1.8rem !important;
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: space-between !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03) !important;
-  transition: all 0.3s ease !important;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07) !important;
-  border-color: #dcdcdc !important;
-}
-
-.t-card-top {
-  display: flex !important;
-  justify-content: space-between !important;
-  align-items: center !important;
-  margin-bottom: 1.2rem !important;
-}
-
-.t-stars {
-  color: #f39c12 !important;
-  font-size: 1.05rem !important;
-  letter-spacing: 2px !important;
-}
-
-.t-badge-verified {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 0.68rem !important;
-  font-weight: 700 !important;
-  color: #27ae60 !important;
-  background: #edfbf2 !important;
-  padding: 0.3rem 0.6rem !important;
-  border-radius: 20px !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 0.35rem !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.5px !important;
-}
-
-.t-dot {
-  width: 6px !important;
-  height: 6px !important;
-  background: #27ae60 !important;
-  border-radius: 50% !important;
-}
-
-.t-quote {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 0.94rem !important;
-  line-height: 1.65 !important;
-  color: #333333 !important;
-  margin: 0 0 1.6rem 0 !important;
-  font-style: italic !important;
-}
-
-.t-author-box {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.9rem !important;
-  border-top: 1px solid #f2f2f2 !important;
-  padding-top: 1.1rem !important;
-}
-
-.t-avatar {
-  width: 44px !important;
-  height: 44px !important;
-  border-radius: 50% !important;
-  background: #111111 !important;
-  color: #ffffff !important;
-  font-family: 'Montserrat', sans-serif !important;
-  font-weight: 800 !important;
-  font-size: 0.85rem !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  flex-shrink: 0 !important;
-}
-
-.t-author-info {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.15rem !important;
-}
-
-.t-name {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-weight: 700 !important;
-  font-size: 0.92rem !important;
-  color: #111111 !important;
-}
-
-.t-role {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 0.78rem !important;
-  color: #777777 !important;
-}
-
-.t-vehicle {
-  font-family: 'Space Mono', monospace !important;
-  font-size: 0.72rem !important;
-  font-weight: 700 !important;
-  color: #a01414 !important;
-}
-
-/* Bandeau Chiffres Clés */
-.trust-metrics-strip {
-  margin-top: 3.5rem !important;
-  background: #ffffff !important;
-  border: 1px solid #eaeaea !important;
-  border-radius: 12px !important;
-  padding: 1.6rem 2rem !important;
-  display: flex !important;
-  justify-content: space-around !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
-  gap: 1.5rem !important;
-}
-
-.metric-item {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-  gap: 0.25rem !important;
-}
-
-.metric-val {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 1.6rem !important;
-  font-weight: 800 !important;
-  color: #111111 !important;
-}
-
-.metric-lbl {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 0.8rem !important;
-  font-weight: 600 !important;
-  color: #666666 !important;
-}
-
-.metric-sep {
-  width: 1px !important;
-  height: 35px !important;
-  background: #e5e5e5 !important;
-}
-
-@media (max-width: 768px) {
-  .metric-sep {
-    display: none !important;
-  }
-}
-
-
-/* ----------------------------------
-   CHIFFRES CLÉS SANS CADRE (FLOTTANTS & ÉPURÉS)
----------------------------------- */
-.trust-metrics-strip {
-  margin-top: 3.5rem !important;
-  background: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  padding: 1.5rem 0 !important;
-  display: flex !important;
-  justify-content: space-around !important;
-  align-items: center !important;
-  flex-wrap: wrap !important;
-  gap: 1.5rem !important;
-}
-
-.metric-item {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-  gap: 0.35rem !important;
-}
-
-.metric-val {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 2.2rem !important;
-  font-weight: 800 !important;
-  color: #111111 !important;
-  line-height: 1 !important;
-}
-
-.metric-lbl {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 0.85rem !important;
-  font-weight: 600 !important;
-  color: #666666 !important;
-}
-
-.metric-sep {
-  width: 1px !important;
-  height: 42px !important;
-  background: #e0e0e0 !important;
-}
-
-
-/* ----------------------------------
-   SECTION 5: TÉMOIGNAGES & CONFIANCE (PARFAITEMENT ÉPURÉ & VISIBLE)
----------------------------------- */
-.testimonials-section {
-  padding: 5.5rem 0 5rem !important;
   background: #f8f8fa !important;
   border-top: 1px solid #ebebee !important;
   border-bottom: 1px solid #ebebee !important;
   width: 100% !important;
   position: relative !important;
+  overflow: hidden !important;
   box-sizing: border-box !important;
 }
 
 .testimonials-section .section-container {
-  max-width: 1240px !important;
+  max-width: 1360px !important;
   margin: 0 auto !important;
   padding: 0 1.5rem !important;
 }
 
-.testimonials-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 1.8rem !important;
-  margin-top: 2.5rem !important;
+.testimonials-marquee-wrapper {
+  overflow: hidden !important;
   width: 100% !important;
+  padding: 1.5rem 0 !important;
+  margin-top: 2rem !important;
+  position: relative !important;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
 }
 
-@media (max-width: 980px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.4rem !important;
+.testimonials-track {
+  display: flex !important;
+  gap: 1.8rem !important;
+  width: max-content !important;
+  animation: testimonialsScroll 35s linear infinite !important;
+}
+
+.testimonials-track:hover {
+  animation-play-state: paused !important;
+}
+
+@keyframes testimonialsScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
+
 
 .testimonial-card {
   background: #ffffff !important;
@@ -5590,16 +5534,28 @@ section[id], footer[id] {
 
 .t-stars {
   color: #f39c12 !important;
-  font-size: 1.15rem !important;
-  letter-spacing: 3px !important;
+  font-size: 1.1rem !important;
+  letter-spacing: 2px !important;
+}
+
+.t-badge-verified {
+  font-family: 'Space Mono', monospace !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  color: #0f764a !important;
+  background: #edfbf2 !important;
+  padding: 0.25rem 0.55rem !important;
+  border-radius: 20px !important;
+  display: inline-flex !important;
+  letter-spacing: 0.5px !important;
 }
 
 .t-quote {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 0.95rem !important;
-  line-height: 1.7 !important;
+  font-size: 0.92rem !important;
+  line-height: 1.65 !important;
   color: #2b2b30 !important;
-  margin: 0 0 1.8rem 0 !important;
+  margin: 0 0 1.5rem 0 !important;
   font-style: normal !important;
   flex-grow: 1 !important;
 }
@@ -5607,20 +5563,20 @@ section[id], footer[id] {
 .t-author-box {
   display: flex !important;
   align-items: center !important;
-  gap: 1rem !important;
+  gap: 0.9rem !important;
   border-top: 1px solid #f0f0f4 !important;
-  padding-top: 1.2rem !important;
+  padding-top: 1.1rem !important;
 }
 
 .t-avatar {
-  width: 46px !important;
-  height: 46px !important;
+  width: 42px !important;
+  height: 42px !important;
   border-radius: 50% !important;
   background: #111111 !important;
   color: #ffffff !important;
   font-family: 'Montserrat', sans-serif !important;
   font-weight: 800 !important;
-  font-size: 0.9rem !important;
+  font-size: 0.85rem !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -5630,29 +5586,71 @@ section[id], footer[id] {
 .t-author-info {
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.2rem !important;
+  gap: 0.15rem !important;
 }
 
 .t-name {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
   font-weight: 800 !important;
-  font-size: 0.95rem !important;
+  font-size: 0.92rem !important;
   color: #111111 !important;
 }
 
 .t-role {
   font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-size: 0.8rem !important;
+  font-size: 0.78rem !important;
   color: #666677 !important;
   font-weight: 500 !important;
 }
 
 .t-vehicle {
   font-family: 'Space Mono', monospace !important;
-  font-size: 0.72rem !important;
+  font-size: 0.7rem !important;
   font-weight: 700 !important;
   color: #0f764a !important;
   letter-spacing: 0.3px !important;
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 3rem 0 2.5rem !important;
+  }
+  .testimonials-track {
+    gap: 0.9rem !important;
+    animation-duration: 24s !important;
+  }
+  .testimonial-card {
+    width: 290px !important;
+    min-width: 290px !important;
+    max-width: 290px !important;
+    padding: 1.3rem 1.1rem !important;
+    border-radius: 12px !important;
+  }
+  .t-stars {
+    font-size: 0.92rem !important;
+  }
+  .t-quote {
+    font-size: 0.82rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 1rem !important;
+  }
+  .t-name {
+    font-size: 0.84rem !important;
+  }
+  .t-role, .t-vehicle {
+    font-size: 0.72rem !important;
+  }
+  .trust-metrics-strip {
+    margin-top: 2rem !important;
+    padding-top: 2rem !important;
+    gap: 1.4rem !important;
+  }
+  .metric-val {
+    font-size: 1.65rem !important;
+  }
+  .metric-lbl {
+    font-size: 0.74rem !important;
+  }
 }
 
 /* Bandeau Chiffres Clés Sans Cadre */
