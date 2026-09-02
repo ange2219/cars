@@ -40,55 +40,87 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
   /* ----------------------------------
-     PAGE LOAD ANIMATIONS (SYNCHRONISÉ DIRECT AVEC LA VIDÉO)
+     LUXURY PRELOADER CURTAIN & ENTRANCE SYNCHRONIZATION
   ---------------------------------- */
+  const preloader = document.getElementById('site-preloader');
   const heroVideo = document.querySelector('.video-inner video');
-  if (heroVideo) {
-    heroVideo.muted = true;
-    heroVideo.play().catch(() => {});
-  }
 
-  // Logo scale-in animation
-  gsap.from('header .logo', {
-    scale: 0,
-    duration: 0.8,
-    ease: "power2.out"
-  });
+  let siteRevealed = false;
+  const revealSite = () => {
+    if (siteRevealed) return;
+    siteRevealed = true;
 
-  // Split text animation for heading
-  if (typeof SplitText !== "undefined") {
-    try {
-      SplitText.create("h1", {
-        type: "lines",
-        mask: "lines",
-        autoSplit: true,
-        onSplit(self) {
-          return gsap.from(self.lines, {
-            y: 420,
-            duration: 0.8
-          });
-        }
-      });
-    } catch (e) {
+    if (preloader) {
+      preloader.classList.add('is-loaded');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+        if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+      }, 650);
+    }
+
+    // Logo scale-in animation
+    gsap.from('header .logo', {
+      scale: 0,
+      duration: 0.8,
+      ease: "power2.out"
+    });
+
+    // Split text animation for heading
+    if (typeof SplitText !== "undefined") {
+      try {
+        SplitText.create("h1", {
+          type: "lines",
+          mask: "lines",
+          autoSplit: true,
+          onSplit(self) {
+            return gsap.from(self.lines, {
+              y: 420,
+              duration: 0.8
+            });
+          }
+        });
+      } catch (e) {
+        gsap.from('.hero-content h1', {
+          y: 100,
+          opacity: 0,
+          duration: 0.8
+        });
+      }
+    } else {
       gsap.from('.hero-content h1', {
         y: 100,
         opacity: 0,
         duration: 0.8
       });
     }
-  } else {
-    gsap.from('.hero-content h1', {
-      y: 100,
-      opacity: 0,
-      duration: 0.8
+
+    // Divider width animation
+    gsap.from('.divider', {
+      width: 0,
+      duration: 1
     });
+  };
+
+  if (heroVideo) {
+    heroVideo.muted = true;
+    const attemptPlay = () => {
+      heroVideo.play().then(() => {
+        setTimeout(revealSite, 150);
+      }).catch(() => {
+        setTimeout(revealSite, 300);
+      });
+    };
+
+    if (heroVideo.readyState >= 2) {
+      attemptPlay();
+    } else {
+      heroVideo.addEventListener('loadeddata', attemptPlay, { once: true });
+      heroVideo.addEventListener('playing', () => { setTimeout(revealSite, 100); }, { once: true });
+    }
   }
 
-  // Divider width animation
-  gsap.from('.divider', {
-    width: 0,
-    duration: 1
-  });
+  // Fallback rapide (350ms max pour une fluidité instantanée)
+  setTimeout(revealSite, 350);
 
   /* ----------------------------------
      OUVERTURE ET FERMETURE DU MENU MOBILE
