@@ -1,10 +1,23 @@
-// Empêcher le navigateur de restaurer une position de scroll corrompue au rechargement (F5)
+// Forcer le retour au tout début de la page (Top 0) à chaque rafraîchissement (Mobile & Desktop)
 if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
-window.scrollTo(0, 0);
+
+function resetScrollToTop() {
+  window.scrollTo(0, 0);
+  if (document.documentElement) document.documentElement.scrollTop = 0;
+  if (document.body) document.body.scrollTop = 0;
+}
+
+resetScrollToTop();
+window.addEventListener('beforeunload', resetScrollToTop);
+window.addEventListener('pageshow', resetScrollToTop);
 
 window.addEventListener("load", () => {
+  resetScrollToTop();
+  setTimeout(resetScrollToTop, 50);
+  setTimeout(resetScrollToTop, 200);
+
   if (typeof ScrollTrigger !== "undefined") {
     ScrollTrigger.clearScrollMemory('manual');
     ScrollTrigger.refresh(true);
@@ -12,7 +25,7 @@ window.addEventListener("load", () => {
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  window.scrollTo(0, 0);
+  resetScrollToTop();
 
   // Register GSAP plugins
   if (typeof gsap !== "undefined") {
