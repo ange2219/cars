@@ -1,6 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/voiture", "destination": "/voiture.html" }
+    { "source": "/voiture", "destination": "/voiture.html" },
+    { "source": "/catalogue", "destination": "/catalogue.html" }
   ]
 }

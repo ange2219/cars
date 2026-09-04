@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalogue Complet des Véhicules Neufs 0 km — Export CIF Direct Usine | THE KEY GROUP Global</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Open Graph / WhatsApp / Facebook Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="THE KEY GROUP">
+  <meta property="og:title" content="Catalogue Complet des Véhicules Neufs — Export Direct Usine CIF">
+  <meta property="og:description" content="Explorez l'ensemble de notre catalogue de véhicules neufs 0 km certifiés direct constructeur aux tarifs d'exportation maritime CIF.">
+  <meta property="og:image" content="/images/og-preview.png">
+  <meta property="og:image:secure_url" content="/images/og-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="474">
+  <meta property="og:image:alt" content="THE KEY GROUP — Exportation Automobile">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/the-key-group-icon.svg">
+  <link rel="alternate icon" type="image/png" href="images/the-key-group-icon.png">
+
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body.page-catalogue {
+      background: #f8f8fa;
+      color: #111111;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navigation Bar */
+    .catalogue-top-nav {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    .catalogue-nav-inner {
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .catalogue-logo-link {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: #111111;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.3px;
+    }
+
+    .catalogue-logo-badge {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: #0f764a;
+      color: #ffffff;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      letter-spacing: 0.8px;
+    }
+
+    .catalogue-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .btn-nav-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #444444;
+      text-decoration: none;
+      padding: 0.55rem 1.1rem;
+      background: #f0f0f2;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-home:hover {
+      background: #111111;
+      color: #ffffff;
+    }
+
+    .btn-nav-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #ffffff;
+      background: #25D366;
+      text-decoration: none;
+      padding: 0.55rem 1.1rem;
+      border-radius: 6px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn-nav-wa:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* Main Container */
+    .catalogue-main-wrap {
+      flex: 1;
+      max-width: 1340px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .catalogue-page-head {
+      margin-bottom: 2rem;
+    }
+
+    .catalogue-tag {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0f764a;
+      letter-spacing: 1px;
+    }
+
+    .catalogue-main-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: #111111;
+      margin: 0.4rem 0 0.6rem;
+      line-height: 1.15;
+    }
+
+    .catalogue-sub {
+      font-size: 1rem;
+      color: #666666;
+      max-width: 780px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Controls: Search + Tabs */
+    .catalogue-controls-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .catalogue-search-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .catalogue-search-input {
+      flex: 1;
+      min-width: 260px;
+      padding: 0.9rem 1.2rem;
+      background: #f8f8fa;
+      border: 1px solid #e2e2e8;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      color: #111111;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .catalogue-search-input:focus {
+      border-color: #0f764a;
+      box-shadow: 0 0 0 3px rgba(15, 118, 74, 0.12);
+      background: #ffffff;
+    }
+
+    .catalogue-count-badge {
+      font-family: 'Space Grotesk', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0f764a;
+      background: rgba(15, 118, 74, 0.08);
+      padding: 0.85rem 1.2rem;
+      border-radius: 8px;
+      white-space: nowrap;
+    }
+
+    .catalogue-filter-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      border-top: 1px solid #f0f0f4;
+      padding-top: 1rem;
+    }
+
+    .cat-tab-btn {
+      background: #f0f0f4;
+      color: #555555;
+      border: none;
+      padding: 0.5rem 0.95rem;
+      border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cat-tab-btn:hover {
+      background: #e2e2e8;
+      color: #111111;
+    }
+
+    .cat-tab-btn.active {
+      background: #0f764a;
+      color: #ffffff;
+    }
+
+    /* Grid */
+    .catalogue-grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .no-results-box {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background: #ffffff;
+      border-radius: 12px;
+      border: 1px dashed #d0d0d8;
+    }
+
+    .no-results-box h3 {
+      font-size: 1.3rem;
+      color: #222222;
+      margin-bottom: 0.5rem;
+    }
+
+    .no-results-box p {
+      color: #777777;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      .catalogue-main-wrap {
+        padding: 1.5rem 1rem 4rem;
+      }
+      .catalogue-controls-bar {
+        padding: 1rem;
+      }
+      .catalogue-grid-container {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body class="page-catalogue">
+
+  <!-- TOP NAVIGATION HEADER -->
+  <nav class="catalogue-top-nav">
+    <div class="catalogue-nav-inner">
+      <a href="index.html" class="catalogue-logo-link">
+        <img src="images/the-key-group-logo.svg" alt="THE KEY GROUP" style="height: 32px; width: auto; vertical-align: middle;">
+        <span class="catalogue-logo-badge">SHOWROOM COMPLET</span>
+      </a>
+
+      <div class="catalogue-nav-actions">
+        <a href="index.html#catalogue" class="btn-nav-home">
+          <span>&larr; Accueil</span>
+        </a>
+        <a href="https://wa.me/22990303245" target="_blank" rel="noopener noreferrer" class="btn-nav-wa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8.01 12.27C8.14 12.44 9.76 14.94 12.24 16.01C12.83 16.27 13.28 16.42 13.64 16.53C14.25 16.72 14.8 16.69 15.24 16.63C15.73 16.56 16.74 16.02 16.95 15.43C17.16 14.83 17.16 14.33 17.1 14.22C17.04 14.11 16.88 14.05 16.64 13.93C16.39 13.81 15.19 13.22 14.97 13.14C14.74 13.06 14.58 13.02 14.41 13.27C14.25 13.51 13.78 14.06 13.63 14.22C13.49 14.39 13.35 14.41 13.1 14.29C12.86 14.17 12.07 13.91 11.13 13.07C10.4 12.42 9.91 11.62 9.77 11.37C9.62 11.13 9.75 11 9.87 10.88C9.98 10.77 10.12 10.59 10.24 10.45C10.36 10.31 10.4 10.21 10.48 10.05C10.56 9.88 10.52 9.74 10.46 9.62C10.4 9.5 9.93 8.35 9.73 7.87C9.53 7.39 9.34 7.46 9.19 7.45C9.05 7.45 8.89 7.44 8.72 7.44L8.53 7.33Z"/>
+          </svg>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CATALOGUE CONTAINER -->
+  <main class="catalogue-main-wrap">
+    
+    <div class="catalogue-page-head">
+      <div class="catalogue-head-titles">
+        <span class="catalogue-tag">// EXPORTATION DIRECTE USINE CIF</span>
+        <h1 class="catalogue-main-title">Tous les Véhicules Neufs</h1>
+        <p class="catalogue-sub">Prix d'exportation sortie d'usine · 0 km certifié · Assurance maritime et transport portuaire CIF inclus.</p>
+      </div>
+    </div>
+
+    <!-- CONTROLS: SEARCH + BRAND TABS -->
+    <div class="catalogue-controls-bar">
+      <div class="catalogue-search-row">
+        <input type="text" id="cat-search-input" class="catalogue-search-input" placeholder="Rechercher une marque, un modèle (ex: BYD, Geely, 7 places, PHEV...)">
+        <div class="catalogue-count-badge" id="cat-count-badge">18 VÉHICULES DISPONIBLES</div>
+      </div>
+
+      <div class="catalogue-filter-tabs" id="cat-brand-tabs">
+        <button class="cat-tab-btn active" data-brand="ALL">Tous les modèles</button>
+        <button class="cat-tab-btn" data-brand="BYD">BYD</button>
+        <button class="cat-tab-btn" data-brand="GEELY">GEELY</button>
+        <button class="cat-tab-btn" data-brand="CHERY">CHERY</button>
+        <button class="cat-tab-btn" data-brand="CHANGAN">CHANGAN</button>
+        <button class="cat-tab-btn" data-brand="JETOUR">JETOUR</button>
+        <button class="cat-tab-btn" data-brand="HAVAL">HAVAL</button>
+        <button class="cat-tab-btn" data-brand="ZEEKR">ZEEKR</button>
+        <button class="cat-tab-btn" data-brand="GAC">GAC</button>
+        <button class="cat-tab-btn" data-brand="KAIYI">KAIYI</button>
+        <button class="cat-tab-btn" data-brand="SWM">SWM</button>
+        <button class="cat-tab-btn" data-brand="SOUEAST">SOUEAST</button>
+      </div>
+    </div>
+
+    <!-- FULL CATALOGUE GRID -->
+    <div class="catalogue-grid-container" id="full-catalogue-grid">
+      <!-- Injected dynamically by script.js -->
+    </div>
+
+  </main>
+
+  <!-- FOOTER MONDIAL -->
+  <footer class="architectural-footer" id="contact">
+    <div class="footer-container">
+      <div class="footer-hero-text">
+        <div class="footer-sub">// THE KEY GROUP · PLATEFORME D'EXPORTATION AUTOMOBILE DIRECTE USINE</div>
+        <h2 class="footer-title">BYD · CHANGAN · JETOUR · GEELY · GAC</h2>
+      </div>
+
+      <div class="footer-interactive-row">
+        <div class="footer-signup-box">
+          <div class="signup-title">DEMANDER UNE COTATION CIF OU UN DEVIS PROFORMA ?</div>
+          <p class="signup-sub">Contactez notre département export international pour recevoir un devis officiel personnalisé sous 24h avec calcul du fret maritime vers votre port.</p>
+          <form class="allocation-form" id="footer-allocation-form">
+            <div class="form-input-group">
+              <input type="email" id="footer-email" placeholder="Votre adresse email professionnelle" required>
+              <button type="submit" class="form-submit-btn">RECEVOIR MON DEVIS &rarr;</button>
+            </div>
+            <div class="form-feedback" id="footer-form-feedback"></div>
+          </form>
+        </div>
+
+        <div class="footer-locations">
+          <div class="loc-card">
+            <div class="loc-city">HUB EXPORT ASIE & LOGISTIQUE</div>
+            <div class="loc-type">Guangzhou International Trade Center</div>
+            <div class="loc-coord">📞 WhatsApp : +229 90 30 32 45</div>
+          </div>
+          <div class="loc-card">
+            <div class="loc-city">SERVICE COMMERCIAL GLOBAL</div>
+            <div class="loc-type">Support Clients International & Flottes</div>
+            <div class="loc-time">✉️ contact@thekeygroup.com</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div class="copyright">
+          &copy; 2026 THE KEY GROUP GLOBAL. TOUS DROITS RÉSERVÉS.
+        </div>
+        <div class="footer-nav-links">
+          <a href="index.html">Accueil</a>
+          <a href="index.html#marques">Marques</a>
+          <a href="index.html#histoire">À Propos</a>
+          <a href="index.html#catalogue">Catalogue</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOUTON FLOTTANT WHATSAPP OFFICIEL -->
+  <a href="https://wa.me/22990303245" target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" aria-label="Discuter sur WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#ffffff" style="display: block;">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.04 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M8.53 7.33C8.37 7.33 8.1 7.39 7.87 7.64C7.65 7.89 7 8.5 7 9.71C7 10.93 7.89 12.1 8.01 12.27C8.14 12.44 9.76 14.94 12.24 16.01C12.83 16.27 13.28 16.42 13.64 16.53C14.25 16.72 14.8 16.69 15.24 16.63C15.73 16.56 16.74 16.02 16.95 15.43C17.16 14.83 17.16 14.33 17.1 14.22C17.04 14.11 16.88 14.05 16.64 13.93C16.39 13.81 15.19 13.22 14.97 13.14C14.74 13.06 14.58 13.02 14.41 13.27C14.25 13.51 13.78 14.06 13.63 14.22C13.49 14.39 13.35 14.41 13.1 14.29C12.86 14.17 12.07 13.91 11.13 13.07C10.4 12.42 9.91 11.62 9.77 11.37C9.62 11.13 9.75 11 9.87 10.88C9.98 10.77 10.12 10.59 10.24 10.45C10.36 10.31 10.4 10.21 10.48 10.05C10.56 9.88 10.52 9.74 10.46 9.62C10.4 9.5 9.93 8.35 9.73 7.87C9.53 7.39 9.34 7.46 9.19 7.45C9.05 7.45 8.89 7.44 8.72 7.44L8.53 7.33Z"/>
+    </svg>
+    <span class="wa-tooltip">Discuter sur WhatsApp</span>
+  </a>
+
+  <!-- GSAP CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
