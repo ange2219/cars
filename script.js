@@ -40,15 +40,24 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
   /* ----------------------------------
-     LUXURY PRELOADER CURTAIN & ENTRANCE SYNCHRONIZATION
+     LUXURY PRELOADER CURTAIN & SMART VIDEO BUFFER SYNCHRONIZATION
   ---------------------------------- */
   const preloader = document.getElementById('site-preloader');
   const heroVideo = document.querySelector('.video-inner video');
 
   let siteRevealed = false;
+  let minTimeElapsed = false;
+  let videoIsReady = !heroVideo; // Si pas de vidéo (ex: page interne ou mobile), ready immédiatement
+
   const revealSite = () => {
     if (siteRevealed) return;
     siteRevealed = true;
+
+    // Démarrer la vidéo au moment exact où le rideau s'ouvre
+    if (heroVideo) {
+      heroVideo.muted = true;
+      heroVideo.play().catch(() => {});
+    }
 
     if (preloader) {
       preloader.classList.add('is-loaded');
@@ -101,13 +110,38 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
   };
 
+  const tryReveal = () => {
+    if (minTimeElapsed && videoIsReady) {
+      revealSite();
+    }
+  };
+
+  // 1. Délai minimum d'affichage du message de bienvenue (2 secondes)
+  setTimeout(() => {
+    minTimeElapsed = true;
+    tryReveal();
+  }, 2000);
+
+  // 2. Détection du chargement complet de la vidéo HD
   if (heroVideo) {
-    heroVideo.muted = true;
-    heroVideo.play().catch(() => {});
+    if (heroVideo.readyState >= 3) {
+      videoIsReady = true;
+      tryReveal();
+    } else {
+      const onVideoReady = () => {
+        videoIsReady = true;
+        tryReveal();
+      };
+      heroVideo.addEventListener('canplaythrough', onVideoReady, { once: true });
+      heroVideo.addEventListener('loadeddata', onVideoReady, { once: true });
+    }
   }
 
-  // Laisse exactement 1,5 seconde (1500ms) pour charger complètement tous les assets et éliminer tout flash
-  setTimeout(revealSite, 1500);
+  // 3. Sécurité maximale (timeout de secours à 4,5s pour ne jamais bloquer l'utilisateur sur réseau très lent)
+  setTimeout(() => {
+    videoIsReady = true;
+    revealSite();
+  }, 4500);
 
   /* ----------------------------------
      OUVERTURE ET FERMETURE DU MENU MOBILE
